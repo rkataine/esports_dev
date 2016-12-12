@@ -6,6 +6,7 @@ http.onreadystatechange = function () {
 	
 	if (http.readyState == 4 && http.status == 200) {
         if (http.responseText) {
+			
             out.innerHTML = http.responseText;			
 			var x = out.getElementsByTagName("h2");
 			

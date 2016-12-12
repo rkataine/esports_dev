@@ -11,6 +11,7 @@
 <script src="scripts/jquery-3.1.1.js"></script> 
 <script>	
 	function getPage() {
+		document.getElementById("text-file").scrollTo(0,0);
 		var result = document.querySelector('input[name="radios"]:checked').value;
 		return result;
 	}
