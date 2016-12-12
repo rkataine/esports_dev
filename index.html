@@ -7,53 +7,78 @@
 <meta name="description" content="Testataan">
 <meta name="keywords" content="e-sports, games, league of legends, portal">
 <meta name="author" content="Osakeyhtiö OY">
-
+<script src="scripts/filereader.js"></script> 
+<script src="scripts/jquery-3.1.1.js"></script> 
+<script>	
+	function getPage() {
+		var result = document.querySelector('input[name="radios"]:checked').value;
+		return result;
+	}
+	function gotoHeader() {
+		
+		var result = document.querySelector('input[name="sub_radios"]:checked').id;
+		if(result === "0") {
+			 $('.content_text').animate({scrollTop:0}, 'slow');
+			return false;
+		}
+		else {
+			var element = document.getElementById("text-file");
+			var rect = element.getBoundingClientRect();
+			var value = document.querySelector('input[name="sub_radios"]:checked').value;
+			$('.content_text').animate({scrollTop:value-rect.top}, 'slow');
+			return false;						
+		}
+	}
+	
+</script>
 </head>
 
-<body class = "body">
-<div class = "layer">
-
+<body class = "body" onload="readFile('database/lol_content.html', document.getElementById('text-file'), document.getElementById('content_buttons'))">
+	
 	<div class = "header">
 		
-	<img src=images/lol_web.png class="headerlogo"/ >	
+	<a href="index.html"><img src="images/LoL-logo_white.png" class="headerlogo"/ ></a>
 		
 	</div>
 	
 	<div class = "container">
-		<div class = "sidebar">
-			<script>
+		
+		<div class = "sidebar">	
 			
-				function setURL(url){
-				document.getElementById('iframe').src = url;
-				}
-			</script>
-			
-			<form class="menu">
+			<br><br>
+			 <form class="menu">
 				 
-				<input id="M" value="M" type="radio" name="radios" onclick="setURL('main.html')" />
-				<label for="M">M</label>
+				<input id="M" value="lol_content.html" type="radio" name="radios" checked autocomplete="off" />
+				<label for="M"><img id="test" src="images/napit_MAIN/napit_MAIN_user.png" class="main_button"/></label><br>
+				
+				<input id="L" value="lol_content.html" type="radio" name="radios" />
+				<label for="L"><img src="images/napit_MAIN/napit_MAIN_lol.png" class="main_button"/></label><br>
+				
+				<input id="H" value="lol_content.html" type="radio" name="radios" />
+				<label for="H"><img src="images/napit_MAIN/napit_MAIN_tools.png" class="main_button"/></label><br>
 				<br><br>
-				<input id="T" value="T" type="radio" name="radios" onclick="setURL('info.html')" />				
-				<label for="T">T</label>
-			</form>
-		</div>
-		<div class  = "content">
-			<iframe class="content_iframe" id="iframe"  src="main.html"></iframe>			
+				<input id="S" value="lol_content.html" type="radio" name="radios" />
+				<label for="S"><img src="images/napit_MAIN/napit_MAIN_some.png" class="main_button"/></label><br>
+				
+				
+				<script>$(document.getElementsByName("radios")).click(function() {	
+					
+					readFile('database/' +getPage(), document.getElementById('text-file'), document.getElementById('content_buttons'));		
+					
+				});</script>
+			</form> 
+		
 		</div>
 		
-		<div class  ="sidecontent">
-		
-			<p></p>
+		<div class = "content_buttons" >
+				<form class="menu" id="content_buttons"></form>
+				
 			
-		</div>	
-	</div>
-	<div class = "footer">	
-		Page updated  
-	<script>
-		document.write(document.lastModified.slice(0,10));
-	</script>
-	 | contact us contact@firma.com
-	</div>
-	</div>
+		</div>
+		<div class = "content">
+				<div class = "content_text" id="text-file"></div>			
+		</div>
+		
+	
 </body>
 </html>
