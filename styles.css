@@ -175,7 +175,9 @@ h3 {
 	color: rgb(87,88,91);
 }
 
-
+img {
+	-ms-interpolation-mode: bicubic;
+}
 a {
 	text-decoration:none;
 	color:rgb(235, 26, 35);
@@ -198,6 +200,8 @@ a:hover {
 .main_button {
 	width: 60px;
 	height: auto;
+	animation-name: example;
+    animation-duration: 4s;
 }
 .content_button {
 	width: 50px;
@@ -211,6 +215,10 @@ a:hover {
   transition:         all 0.2s ease-in-out;
 
   }
+  @keyframes example {
+    0%   {width:0px;}   
+    100% {width: 60px;}
+}
 .menu label:hover {	 
 	 filter: invert(100%);	 
 	 cursor: pointer;
