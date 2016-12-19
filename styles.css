@@ -187,11 +187,12 @@ a:hover {
 .main_button_left {
 	width: 60px;
 	height: auto;
-	animation-name: mainbuttons;
-    animation-duration: 1s;
-	animation-iteration-count:1;
+	-webkit-animation: mainbuttons 2s;
+	-moz-animation: mainbuttons 2s;
+	-o-animation: mainbuttons 2s;
 }
 .main_button_right {
+	
 	width: 60px;
 	height: auto;
 	margin-left: 28px; 
@@ -228,28 +229,28 @@ img.icon {
 
    
 	 @-o-keyframes mainbuttons {
-    0%   {width:0px;}   
-    100% {width: 60px;}
+    from {width:0px;}
+		to {width: 60px;}
 	}
 	 @-moz-keyframes mainbuttons {
-    0%   {width:0px;}   
-    100% {width: 60px;}
+    from {width:0px;}
+		to {width: 60px;}
 	}
 	 @keyframes mainbuttons {
-    0%   {width:0px;}   
-    100% {width: 60px;}
+		from {width:0px;}
+		to {width: 60px;}
 	}
 	@keyframes contentbuttons {
-    0%   {width:0px;}   
-    100% {width: 50px;}
+   from {width:0px;}
+		to {width: 60px;}
 	}
 	@-o-keyframes contentbuttons {
-    0%   {width:0px;}   
-    100% {width: 50px;}
+    from {width:0px;}
+		to {width: 60px;}
 	}
 	@-moz-keyframes contentbuttons {
-    0%   {width:0px;}   
-    100% {width: 50px;}
+    from {width:0px;}
+		to {width: 60px;}
 	}
 		
 	
