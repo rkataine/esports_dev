@@ -217,7 +217,7 @@ img.icon {
 }
 .menu label {
   #position: fixed;
-  #display: inline-block;  
+  display: inline-block;  
   #color: rgba(0, 0, 0, 0.6);  
   margin-top: 5px;
   margin-left: 18px; 
