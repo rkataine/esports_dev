@@ -11,12 +11,12 @@ http.onreadystatechange = function () {
 			var x = out.getElementsByTagName("h2");
 			
 			var i;
-			var result = "<input id='0' value=\"#top\" onclick=\"gotoHeader()\" type='radio' name='sub_radios' checked autocomplete='off'/><label for='0'><img src='images/hexat_ikonit/espot_ikonit_empty.svg' class='content_button'/></label><br>";
+			var result = "<input id='0' value=\"#top\" onclick=\"gotoHeader()\" type='radio' name='sub_radios' checked autocomplete='off'/><label for='0'><img src='images/espot_ikonit_empty.png' class='content_button'/></label><br>";
 			
 			for (i = 0; i < x.length; i++) {
 				var rect = x[i].getBoundingClientRect();
 				
-				result += "<input id='"+x[i].id +"' value=\""+parseInt(rect.top,10) +"\" onclick=\"gotoHeader()\" type='radio'  name='sub_radios'/><label for='"+x[i].id +"'><img src='images/hexat_ikonit/espot_ikonit_empty.svg' class='content_button'/></label><br>\n";
+				result += "<input id='"+x[i].id +"' value=\""+parseInt(rect.top,10) +"\" onclick=\"gotoHeader()\" type='radio'  name='sub_radios'/><label for='"+x[i].id +"'><img src='images/espot_ikonit_empty.png' class='content_button'/></label><br>\n";
 				
 			}
 					
