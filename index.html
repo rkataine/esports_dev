@@ -7,11 +7,12 @@
 <meta name="description" content="Testataan">
 <meta name="keywords" content="e-sports, games, league of legends, portal">
 <meta name="author" content="Osakeyhtiö OY">
-<script src="scripts/filereader.js"></script> 
-<script src="scripts/jquery-3.1.1.js"></script> 
-<script>	
+<script src="scripts/filereader.js" type="text/javascript"></script> 
+<script src="scripts/jquery-3.1.1.js" type="text/javascript"></script> 
+<script type="text/javascript">	
 	function getPage() {
-		document.getElementById("text-file").scrollTo(0,0);
+		//document.getElementById('text-file').scrollTop = 0;
+		//document.getElementById("text-file").scrollTo(0,0);
 		var result = document.querySelector('input[name="radios"]:checked').value;
 		return result;
 	}
@@ -23,9 +24,12 @@
 			return false;
 		}
 		else {
+		
 			var element = document.getElementById("text-file");
 			var rect = element.getBoundingClientRect();
 			var value = document.querySelector('input[name="sub_radios"]:checked').value;
+			
+			
 			$('.content_text').animate({scrollTop:value-rect.top}, 'slow');
 			return false;						
 		}
@@ -34,7 +38,7 @@
 </script>
 </head>
 
-<body class = "body" onload="readFile('database/overview_content.html', document.getElementById('text-file'), document.getElementById('content_buttons'))">
+<body class = "body" onload="readFile('database/overview_content.html', document.getElementById('text-file'), document.getElementById('content_buttons'),0)">
 	
 	<div class = "header">
 		
@@ -47,27 +51,34 @@
 		<div class = "sidebar">	
 			
 			<br><br>
+			
 			 <form class="menu">
-				 
-
+				
+				
 				<input id="M" value="overview_content.html" type="radio" name="radios" checked autocomplete="off" />
 				
 				<label for="M"><img id="test" src="images/espot_ikonit_empty.png" class="main_button_left"/></label>
 				<label for="M"><img id="test" src="images/hexat_ikonit/espot_ikonit_league.svg" class="icon"/></label>
-				<br>
+				<span class="describe_left">Overview</span>
+				<br><br><br>
+				
 				<input id="L" value="about_content.html" type="radio" name="radios" />
-				<label for="L"><img src="images/espot_ikonit_empty.png" class="main_button_right"/></label><br>
+				<label for="L"><img src="images/espot_ikonit_empty.png" class="main_button_right"/></label>
+				<span class="describe_right">About</span>
+				<br><br><br>
 				
 				<input id="H" value="whopick_content.html" type="radio" name="radios" />
-				<label for="H"><img src="images/espot_ikonit_empty.png" class="main_button_left"/></label><br>
-				<br><br>
-				<input id="S" value="ingamesuccess_content.html" type="radio" name="radios" />
-				<label for="S"><img src="images/espot_ikonit_empty.png" class="main_button_right"/></label><br>
-
+				<label for="H"><img src="images/espot_ikonit_empty.png" class="main_button_left"/></label>
+				<span class="describe_left">Champions</span>
+				<br><br><br>
 				
-				<script>$(document.getElementsByName("radios")).click(function() {	
-					
-					readFile('database/' +getPage(), document.getElementById('text-file'), document.getElementById('content_buttons'));		
+				<input id="S" value="ingamesuccess_content.html" type="radio" name="radios" />				
+				<label for="S"><img src="images/espot_ikonit_empty.png" class="main_button_right"/></label>
+				<span class="describe_right">In-game success</span>
+				
+				<script type="text/javascript"> 
+					$(document.getElementsByName("radios")).click(function() {						
+					readFile('database/' +getPage(), document.getElementById('text-file'), document.getElementById('content_buttons'), document.getElementById('text-file').scrollTop);		
 					
 				});</script>
 			</form> 
@@ -75,12 +86,15 @@
 		</div>
 		
 		<div class = "content_buttons" >
+		
 				<form class="menu" id="content_buttons"></form>
 				
 			
 		</div>
 		<div class = "content">
-				<div class = "content_text" id="text-file"></div>			
+				<div class = "content_text" id="text-file">
+				
+				</div>			
 		</div>
 		</div>
 	

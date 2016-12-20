@@ -175,11 +175,33 @@ a:visited {
 a:hover {
 	color:rgb(150, 26, 35);
 }
-
+.menu span {
+	font-size: 16px;
+}
+.menu span.describe_left {
+	position:relative;
+	font-family:'RegularText';
+	margin-left: 78px; 
+	top: 26px; 
+	-webkit-animation: describes 2s;
+	-moz-animation: describes 2s;
+	-o-animation: describes 2s;
+}
+.menu span.describe_right {
+	position:relative;
+	font-family:'RegularText';
+	margin-left: 10px; 
+	top: 26px; 
+	-webkit-animation: describes 2s;
+	-moz-animation: describes 2s;
+	-o-animation: describes 2s;
+}
 .menu input {
 	display: none;
 }
+
 .menu input:checked + label {
+	
 	-webkit-filter: saturate(50) hue-rotate(140deg); filter: saturate(50) hue-rotate(140deg);
 	
   #filter: invert(50%);
@@ -187,6 +209,7 @@ a:hover {
 .main_button_left {
 	width: 60px;
 	height: auto;
+	
 	-webkit-animation: mainbuttons 2s;
 	-moz-animation: mainbuttons 2s;
 	-o-animation: mainbuttons 2s;
@@ -201,10 +224,22 @@ a:hover {
 	-moz-animation: mainbuttons 2s;
 	-o-animation: mainbuttons 2s;
 }
-.content_button {
+
+.content_button_left {
 	
 	width: 50px;
 	height: auto;
+	
+	-webkit-animation: contentbuttons 2s;
+	-moz-animation: contentbuttons 2s;
+	-o-animation: contentbuttons 2s;
+    
+}
+.content_button_right {
+	top: 18px;
+	width: 50px;
+	height: auto;
+	margin-left: 28px; 
 	-webkit-animation: contentbuttons 2s;
 	-moz-animation: contentbuttons 2s;
 	-o-animation: contentbuttons 2s;
@@ -212,52 +247,43 @@ a:hover {
 }
 img.icon {
 	position: relative;
-	left: -64px;
-	top: -18px;
+	left: 16px;
+	top: 18px;
 	width: 30px;
+	-webkit-animation: mainlogos 2s;
+	-moz-animation: mainlogos 2s;
+	-o-animation: mainlogos 2s;
 }
 .menu label {
-  #position: fixed;
+  position: fixed;
   display: inline-block;  
   #color: rgba(0, 0, 0, 0.6);  
-  margin-top: 5px;
-  margin-left: 18px; 
   
-  transition: all 0.2s ease-in-out;
+  margin-left: 20px; 
+  
+  transition: all 0.1s ease-in-out;
 
   }
 
    
-	 @-o-keyframes mainbuttons {
-    from {width:0px;}
-		to {width: 60px;}
-	}
-	 @-moz-keyframes mainbuttons {
-    from {width:0px;}
-		to {width: 60px;}
-	}
-	 @keyframes mainbuttons {
-		from {width:0px;}
-		to {width: 60px;}
-	}
-	@keyframes contentbuttons {
-   from {width:0px;}
-		to {width: 60px;}
-	}
-	@-o-keyframes contentbuttons {
-    from {width:0px;}
-		to {width: 60px;}
-	}
-	@-moz-keyframes contentbuttons {
-    from {width:0px;}
-		to {width: 60px;}
-	}
-		
+	@keyframes describes { from {font-size:0px;} to {font-size: 16px;} }
+	@-o-keyframes describes { from {font-size:0px;} to {font-size: 16px;}}
+	@-moz-keyframes describes { from {font-size:0px;} to {font-size: 16px;}}
 	
+	@keyframes contentbuttons { from {width:0px;} to {width: 50px;} }
+	@-o-keyframes contentbuttons { from {width:0px;} to {width: 50px;}}
+	@-moz-keyframes contentbuttons { from {width:0px;} to {width: 50px;}}
+	@keyframes mainbuttons { from {width:0px;} to {width: 60px;} }
+	@-o-keyframes mainbuttons { from {width:0px;} to {width: 60px;}}
+	@-moz-keyframes mainbuttons { from {width:0px;} to {width: 60px;}}
+	@keyframes mainlogos { from {width:0px;} to {width: 30px;} }
+	@-o-keyframes mainlogos { from {width:0px;} to {width: 30px;}}
+	@-moz-keyframes mainlogos { from {width:0px;} to {width: 30px;}}
 	
 .menu label:hover {	 
 	-webkit-filter: saturate(50) hue-rotate(140deg); filter: saturate(50) hue-rotate(140deg);
 	 #filter: invert(50%);	 
+	 
 	 cursor: pointer;
 }
 .profile {
