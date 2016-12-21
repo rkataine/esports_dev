@@ -42,7 +42,12 @@
 	
 	<div class = "header">
 		
-	<a href="index.html"><img src="images/hexat_ikonit/espot_ikonit_eSPOT.svg" class="headerlogo" ></a>
+	 <a href="index.html"><img src="images/hexat_ikonit/espot_ikonit_eSPOT.svg" class="headerlogo" ></a>		
+		<img src="images/hexat_ikonit/espot_ikonit_league.svg" class ="gamelogo" id="checked">
+		<img src="images/hexat_ikonit/espot_ikonit_cs.svg" class ="gamelogo">
+		<img src="images/hexat_ikonit/espot_ikonit_dota2.svg" class ="gamelogo">
+		<img src="images/hexat_ikonit/espot_ikonit_heartstone.svg" class ="gamelogo">
+		<img src="images/hexat_ikonit/espot_ikonit_keilamies.svg" class ="gamelogo">
 		
 	</div>
 	
@@ -54,28 +59,28 @@
 			
 			 <nav class="mainmenu">
 				
-				
+				<!--<div class="describe_left">Overview</div> -->
 				<input id="M" value="overview_content.html" type="radio" name="radios" checked autocomplete="off" />
 				
-				<label for="M"><img id="test" src="images/espot_ikonit_empty.png" class="main_button_left"/></label>
-				<label for="M"><img id="test" src="images/hexat_ikonit/espot_ikonit_league.svg" class="icon"/></label>
-				<span class="describe_left">Overview</span>
-				<br><br><br>
+				<label for="M"><img src="images/espot_ikonit_empty.png" class="main_button_left"/></label>
+				<label for="M"><img src="images/hexat_ikonit/espot_ikonit_league.svg" class="icon"/></label>
 				
+				<br><br><br>
+				<!--<div class="describe_right">About</div>-->
 				<input id="L" value="about_content.html" type="radio" name="radios" />
 				<label for="L"><img src="images/espot_ikonit_empty.png" class="main_button_right"/></label>
-				<span class="describe_right">About</span>
-				<br><br><br>
 				
+				<br><br><br>
+				<!--<div class="describe_left">Champions</div>-->
 				<input id="H" value="whopick_content.html" type="radio" name="radios" />
 				<label for="H"><img src="images/espot_ikonit_empty.png" class="main_button_left"/></label>
-				<span class="describe_left">Champions</span>
+				<label for="M"><img src="images/hexat_ikonit/espot_ikonit_kadet.svg" class="icon"/></label>
 				<br><br><br>
-				
+				<!--<div class="describe_right">In-game success</div>-->
 				<input id="S" value="ingamesuccess_content.html" type="radio" name="radios" />				
 				<label for="S"><img src="images/espot_ikonit_empty.png" class="main_button_right"/></label>
-				<span class="describe_right">In-game success</span>
 				
+				<br><br><br>
 				<script type="text/javascript"> 
 					$(document.getElementsByName("radios")).click(function() {						
 					readFile('database/' +getPage(), document.getElementById('text-file'), document.getElementById('content_buttons'), document.getElementById('text-file').scrollTop);		
