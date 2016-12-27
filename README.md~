@@ -3,8 +3,6 @@
 Katso gitissä olevaa uusinta versiota sivustosta:
 https://rawgit.com/rkataine/esports_dev/master/index.html
 
-Lisätty NetBeans project speksi, hyvä open source ohjelma useamman kielen editoimiseen, nopeuttaa kirjottamista ja helpottaa formatin standardisoimisessa + sisältää monenmoista autotesteria, bugien etsimis työkalua, gitin yhteydessä toimivaa bugi testeriä, jne jne suosittelen tutustuun: http://netbeans.org/ -Joni
-
 Ohjeet sisällön lisäämiseen:
 
 index.html on pääsivu, johon lisäillään sivupalkin nappeja. 
