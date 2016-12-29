@@ -1,386 +1,380 @@
 @font-face {
     font-family: PixelFont;
     src: url('fonts/Beefd.ttf'); 	
-	
 }
+
 @font-face {
     font-family: RegularText;
     src: url('fonts/ArchivoNarrow-Regular.ttf'); 
 }
-html {
-	height: 100%;
-}
-.body {
-	font-family:'RegularText';	
 
-	height: 100%;
-	
-	background-color:#fff;
-	margin:0;
-	padding:0;
+html {
+    height: 100%;
+}
+
+.body {
+    font-family: 'RegularText';	
+    height: 100%;
+    background-color: #fff;
+    margin: 0;
+    padding: 0;
 }
 
 .headerlogo {	
-	width:auto;
-	height:90%;
-	padding-left: 10px;
-	padding-top: 5px;
-	
+    width: auto;
+    height: 90%;
+    padding-left: 10px;
+    padding-top: 5px;
 }
+
 .gamelogo {
-	position:relative;
-	width:auto;
-	height:40px;
-	padding-bottom: 40px;
-	padding-left:20px;
+    position: relative;
+    width: auto;
+    height: 40px;
+    padding-bottom: 40px;
+    padding-left: 20px;
 }
+
 .gamelogo#checked {
-	position:relative;
-	-webkit-filter: saturate(50) hue-rotate(140deg); filter: saturate(50) hue-rotate(140deg);
-	width:auto;
-	height:40px;
-	padding-bottom: 30px;
-	padding-left:20px;
+    position: relative;
+    -webkit-filter: saturate(50) hue-rotate(140deg); filter: saturate(50) hue-rotate(140deg);
+    width: auto;
+    height: 40px;
+    padding-bottom: 30px;
+    padding-left: 20px;
 }
+
 .headerlogos#checked {
-	-webkit-filter: saturate(50) hue-rotate(140deg); filter: saturate(50) hue-rotate(140deg);
+    -webkit-filter: saturate(50) hue-rotate(140deg); filter: saturate(50) hue-rotate(140deg);
 }
+
 .headerlogos {	
-	position:relative;
-	width:auto;
-	height:80px;
-	padding-left: 20px;
-	
-	#padding-top: 2px;
-	
+    position: relative;
+    width: auto;
+    height: 80px;
+    padding-left: 20px;
+    //#padding-top: 2px;
 }
 
 .header{   	
-   
-	
-	background-color:rgb(255,255,255);
-	height: 100px;		
-	overflow:hidden;
-	
+    background-color: rgb(255,255,255);
+    height: 100px;		
+    overflow: hidden;
 }
+
 .header:hover{
-		height: 150px;		
-		-webkit-animation: header 0.5s;
-		-moz-animation: header 0.5s;
-		-o-animation: header 0.5s;
+    height: 150px;		
+    -webkit-animation: header 0.5s;
+    -moz-animation: header 0.5s;
+    -o-animation: header 0.5s;
 }
 
 .header:after{   	
-   
-	
-	
-	
-	opacity:0.7;
-	
+    opacity:0.7;
 }
+
 .container {
-	
-	
-	display: flex;
-	width: 100%;
-	height: -o-calc(100% - 105px); /* opera */
-	height: -webkit-calc(100% - 105px); /* google, safari */
-	height: -moz-calc(100% - 105px); /* firefox */
-	
+    display: flex;
+    width: 100%;
+    height: -o-calc(100% - 105px); /* opera */
+    height: -webkit-calc(100% - 105px); /* google, safari */
+    height: -moz-calc(100% - 105px); /* firefox */
 }
 
 .container:after {
-	background-image: url('images/background.png');
-	background-repeat: no-repeat;
-	background-size: 100%;
-	#background-color:rgb(0,0,0); 
-	content: ""; 
-	opacity: 0.5;
-	top: 100px;
-	left: 0;
-	bottom: 0;
-	right: 0;
-	position: absolute;
-	z-index: -1;   
+    background-image: url('images/background.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    // #background-color: rgb(0,0,0); 
+    content: ""; 
+    opacity: 0.5;
+    top: 100px;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;   
 }
+
 .content_buttons {
-	width: 50px;
-	top: 0px;
-	height: 100%;
-	position:relative;
-	background-color: rgb(235,235,235); 
-	opacity: 1;
+    width: 50px;
+    top: 0px;
+    height: 100%;
+    position: relative;
+    background-color: rgb(235,235,235); 
+    opacity: 1;
 }
-
-
 
 .sidebar {
-	float: left;
-	height: 100%;
-	
-	width: 100px;
-	#background-color:rgb(255,255,255); 
-	cursor:default;
-	color:#000;
-	
+    float: left;
+    height: 100%;
+    width: 100px;
+    // #background-color:rgb(255,255,255); 
+    cursor:default;
+    color:#000;
 }
 
 .sidebar:after {
-	background-image: url('images/circuit-board_white.png');
-	background-size: 300px;
-	#background-color:rgb(255,255,255); 
-	content: ""; 
-	opacity: 0.4;
-	top: 0;
-	left: 0;
-	bottom: 0;
-	right: 0;
-	position: absolute;
-	z-index: -1;   
+    background-image: url('images/circuit-board_white.png');
+    background-size: 300px;
+    // #background-color: rgb(255,255,255); 
+    content: ""; 
+    opacity: 0.4;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;   
 }
 
-
 .content_image {
-	width: 350px;
+    width: 350px;
 }
 
 .content_text {
-	
-	font-family:'RegularText';	
-	color:rgb(95, 94, 93);
-	width:100%;	
-	height:100%;
-	margin-left: 10px;
-	border: none;
-	overflow: scroll;
-	overflow-x: hidden;
+    font-family: 'RegularText';	
+    color: rgb(95, 94, 93);
+    width: 100%;	
+    height: 100%;
+    margin-left: 10px;
+    border: none;
+    overflow: scroll;
+    overflow-x: hidden;
 }
+
 .content img {
-	
-	max-width: -o-calc(100%); /* opera */
-	max-width: -webkit-calc(100%); /* google, safari */
-	max-width: -moz-calc(100%); /* firefox */
+    max-width: -o-calc(100%); /* opera */
+    max-width: -webkit-calc(100%); /* google, safari */
+    max-width: -moz-calc(100%); /* firefox */
 }
+
 .content {
-	position:relative;
-	top:0px;
-	background-color: rgba(255, 255, 255,0.7);
-	font-family: 'RegularText';
-	float: left;
-	color:rgb(95, 94, 93);
-	max-width:800px;	
-	width: -o-calc(100% - 300px); /* opera */
-	width: -webkit-calc(100% - 300px); /* google, safari */
-	width: -moz-calc(100% - 300px); /* firefox */
-	
-	height:100%;
-	padding-left: 0px;	
-	border: none;
-	height:100%;
+    position: relative;
+    top: 0px;
+    background-color: rgba(255, 255, 255,0.7);
+    font-family: 'RegularText';
+    float: left;
+    color: rgb(95, 94, 93);
+    max-width: 800px;	
+    width: -o-calc(100% - 300px); /* opera */
+    width: -webkit-calc(100% - 300px); /* google, safari */
+    width: -moz-calc(100% - 300px); /* firefox */
+    height: 100%;
+    padding-left: 0px;	
+    border: none;
+    height: 100%;
 }
 
 .gray_back {
-	background-color: rgba(200, 200, 200,0.7);
-
+    background-color: rgba(200, 200, 200,0.7);
+    width: 100%;
 }
+
 .white_back {
-	background-color: rgba(255, 255, 255,0.7);
+    background-color: rgba(255, 255, 255,0.7);
+    width: 100%;
+}
 
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
 }
+
 h1 {
-	text-shadow: 4px 4px 4px #ddbbbb;
-	font-size: 20px;
-	font-family: 'PixelFont';	
-	padding-left:4px;
-	color: rgb(87,88,91);
+    text-shadow: 4px 4px 4px #ddbbbb;
+    font-size: 20px;
+    font-family: 'PixelFont';	
+    padding-left: 4px;
+    color: rgb(87,88,91);
 }
+
 h2 {
-	text-shadow: 4px 4px 4px #ddbbbb;
-	font-size: 18px;
-	font-family: 'PixelFont';	
-	padding-left:4px;
-	color: rgb(87,88,91);
-	text-align: center;
+    text-shadow: 4px 4px 4px #ddbbbb;
+    font-size: 18px;
+    font-family: 'PixelFont';	
+    padding-left: 4px;
+    color: rgb(87,88,91);
+    text-align: center;
 }
+
 h3 {
-	text-shadow: 4px 4px 4px #ddbbbb;
-	font-size: 16px;
-	font-family: 'PixelFont';	
-	padding-left:4px;
-	color: rgb(87,88,91);
+    text-shadow: 4px 4px 4px #ddbbbb;
+    font-size: 16px;
+    font-family: 'PixelFont';	
+    padding-left: 4px;
+    color: rgb(87,88,91);
 }
 
 img {
-	-ms-interpolation-mode: bicubic;
+    -ms-interpolation-mode: bicubic;
 }
+
 a {
-	text-decoration:none;
-	color:rgb(235, 26, 35);
-	
+    text-decoration:none;
+    color:rgb(235, 26, 35);
 }
+
 a:visited {
-	color:rgb(235, 26, 35);
+    color:rgb(235, 26, 35);
 }
+
 a:hover {
-	color:rgb(150, 26, 35);
+    color:rgb(150, 26, 35);
 }
+
 .mainmenu div {
-	font-size: 14px;
-	
+    font-size: 14px;
 }
 
 .mainmenu div.describe_left {
-	-ms-transform: rotate(-32deg); /* IE 9 */
+    -ms-transform: rotate(-32deg); /* IE 9 */
     -webkit-transform: rotate(-32deg); /* Chrome, Safari, Opera */
     transform: rotate(-32deg);
-	position:relative;
-	font-family:'RegularText';
-	margin-left: 0px; 
-	
-	top: 0px; 
-	-webkit-animation: describes 2s;
-	-moz-animation: describes 2s;
-	-o-animation: describes 2s;
-	
+    position: relative;
+    font-family:'RegularText';
+    margin-left: 0px; 
+
+    top: 0px; 
+    -webkit-animation: describes 2s;
+    -moz-animation: describes 2s;
+    -o-animation: describes 2s;
 }
+
 .mainmenu div.describe_right {
-	-ms-transform: rotate(-32deg); /* IE 9 */
+    -ms-transform: rotate(-32deg); /* IE 9 */
     -webkit-transform: rotate(-32deg); /* Chrome, Safari, Opera */
     transform: rotate(-32deg);
-	position:relative;
-	font-family:'RegularText';
-	margin-left: 0px; 
-	left:10px;
-	top: 0px; 
-	-webkit-animation: describes 2s;
-	-moz-animation: describes 2s;
-	-o-animation: describes 2s;
+    position: relative;
+    font-family:'RegularText';
+    margin-left: 0px; 
+    left: 10px;
+    top: 0px; 
+    -webkit-animation: describes 2s;
+    -moz-animation: describes 2s;
+    -o-animation: describes 2s;
 }
+
 .mainmenu input {
-	display: none;
+    display: none;
 }
+
 .contentmenu input {
-	display: none;
+    display: none;
 }
 
 .mainmenu input:checked + label {
-	
-	-webkit-filter: saturate(50) hue-rotate(140deg); filter: saturate(50) hue-rotate(140deg);
-	
-  #filter: invert(50%);
+    -webkit-filter: saturate(50) hue-rotate(140deg); filter: saturate(50) hue-rotate(140deg);
+    // #filter: invert(50%);
 }
+
 .masterbar {
-	width: 100px;
-	
+    width: 100px;
+
 }
+
 .contentmenu input:checked + label {
-	
-	-webkit-filter: saturate(50) hue-rotate(140deg); filter: saturate(50) hue-rotate(140deg);
-	
-  #filter: invert(50%);
+    -webkit-filter: saturate(50) hue-rotate(140deg); filter: saturate(50) hue-rotate(140deg);
+    // #filter: invert(50%);
 }
+
 .main_button_left {
-	width: 50px;
-	height: auto;
-	
-	-webkit-animation: mainbuttons 2s;
-	-moz-animation: mainbuttons 2s;
-	-o-animation: mainbuttons 2s;
+    width: 50px;
+    height: auto;
+
+    -webkit-animation: mainbuttons 2s;
+    -moz-animation: mainbuttons 2s;
+    -o-animation: mainbuttons 2s;
 }
+
 .main_button_right {
-	
-	width: 50px;
-	height: auto;
-	margin-left: 28px; 
-	#margin-top: -28px;
-	-webkit-animation: mainbuttons 2s;
-	-moz-animation: mainbuttons 2s;
-	-o-animation: mainbuttons 2s;
+    width: 50px;
+    height: auto;
+    margin-left: 28px; 
+    //#margin-top: -28px;
+    -webkit-animation: mainbuttons 2s;
+    -moz-animation: mainbuttons 2s;
+    -o-animation: mainbuttons 2s;
 }
 
 .content_button_left {
-	
-	width: 30px;
-	height: auto;
-	opacity: 1;
-	-webkit-animation: contentbuttons 2s;
-	-moz-animation: contentbuttons 2s;
-	-o-animation: contentbuttons 2s;
-    
+    width: 30px;
+    height: auto;
+    opacity: 1;
+    -webkit-animation: contentbuttons 2s;
+    -moz-animation: contentbuttons 2s;
+    -o-animation: contentbuttons 2s;
 }
+
 .content_button_right {
-	top: 18px;
-	width: 30px;
-	height: auto;
-	margin-left: 16px; 
-	-webkit-animation: contentbuttons 2s;
-	-moz-animation: contentbuttons 2s;
-	-o-animation: contentbuttons 2s;
-    
+    top: 18px;
+    width: 30px;
+    height: auto;
+    margin-left: 16px; 
+    -webkit-animation: contentbuttons 2s;
+    -moz-animation: contentbuttons 2s;
+    -o-animation: contentbuttons 2s;
 }
+
 img.icon {
-	position: relative;
-	left: 14px;
-	top: 14px;
-	width: 25px;
-	-webkit-animation: mainlogos 2s;
-	-moz-animation: mainlogos 2s;
-	-o-animation: mainlogos 2s;
+    position: relative;
+    left: 14px;
+    top: 14px;
+    width: 25px;
+    -webkit-animation: mainlogos 2s;
+    -moz-animation: mainlogos 2s;
+    -o-animation: mainlogos 2s;
 }
+
 .mainmenu label {
-  position: fixed;
-  display: inline-block;  
-  #color: rgba(0, 0, 0, 0.6);  
-  
-  margin-left: 20px; 
-  
-  transition: all 0.1s ease-in-out;
+    position: fixed;
+    display: inline-block;  
+    // #color: rgba(0, 0, 0, 0.6);  
+    margin-left: 20px; 
+    transition: all 0.1s ease-in-out;
+}
 
-  }
 .contentmenu label {
-  position: fixed;
-  display: inline-block;  
-  #color: rgba(0, 0, 0, 0.6);  
-  margin-top: 20px;
-  margin-left: 2px; 
-  
-  transition: all 0.1s ease-in-out;
+    position: fixed;
+    display: inline-block;  
+    // #color: rgba(0, 0, 0, 0.6);  
+    margin-top: 20px;
+    margin-left: 2px; 
+    transition: all 0.1s ease-in-out;
+}
 
-  }
-   
-	@keyframes describes { from {font-size:0px;} to {font-size: 14px;} }
-	@-o-keyframes describes { from {font-size:0px;} to {font-size: 14px;}}
-	@-moz-keyframes describes { from {font-size:0px;} to {font-size: 14px;}}
-	
-	@keyframes contentbuttons { from {width:0px;} to {width: 30px;} }
-	@-o-keyframes contentbuttons { from {width:0px;} to {width: 30px;}}
-	@-moz-keyframes contentbuttons { from {width:0px;} to {width: 30px;}}
-	@keyframes mainbuttons { from {width:0px;} to {width: 50px;} }
-	@-o-keyframes mainbuttons { from {width:0px;} to {width: 50px;}}
-	@-moz-keyframes mainbuttons { from {width:0px;} to {width: 50px;}}
-	@keyframes mainlogos { from {width:0px;} to {width: 25px;} }
-	@-o-keyframes mainlogos { from {width:0px;} to {width: 25px;}}
-	@-moz-keyframes mainlogos { from {width:0px;} to {width: 25px;}}
-	@keyframes header { from {height:100px;} to {height: 150px;} }
-	@-o-keyframes header { from {height:100px;} to {height: 150px;}}
-	@-moz-keyframes header { from {height:100px;} to {height: 150px;}}
-	
+@keyframes describes { from {font-size:0px;} to {font-size: 14px;} }
+@-o-keyframes describes { from {font-size:0px;} to {font-size: 14px;}}
+@-moz-keyframes describes { from {font-size:0px;} to {font-size: 14px;}}
+
+@keyframes contentbuttons { from {width:0px;} to {width: 30px;} }
+@-o-keyframes contentbuttons { from {width:0px;} to {width: 30px;}}
+@-moz-keyframes contentbuttons { from {width:0px;} to {width: 30px;}}
+@keyframes mainbuttons { from {width:0px;} to {width: 50px;} }
+@-o-keyframes mainbuttons { from {width:0px;} to {width: 50px;}}
+@-moz-keyframes mainbuttons { from {width:0px;} to {width: 50px;}}
+@keyframes mainlogos { from {width:0px;} to {width: 25px;} }
+@-o-keyframes mainlogos { from {width:0px;} to {width: 25px;}}
+@-moz-keyframes mainlogos { from {width:0px;} to {width: 25px;}}
+@keyframes header { from {height:100px;} to {height: 150px;} }
+@-o-keyframes header { from {height:100px;} to {height: 150px;}}
+@-moz-keyframes header { from {height:100px;} to {height: 150px;}}
+
 .mainmenu label:hover {	 
-	-webkit-filter: saturate(50) hue-rotate(140deg); filter: saturate(50) hue-rotate(140deg);
-	 #filter: invert(50%);	 
-	 
-	 cursor: pointer;
+    -webkit-filter: saturate(50) hue-rotate(140deg); filter: saturate(50) hue-rotate(140deg);
+    // #filter: invert(50%);	 
+
+    cursor: pointer;
 }
+
 .contentmenu label:hover {	 
-	-webkit-filter: saturate(50) hue-rotate(140deg); filter: saturate(50) hue-rotate(140deg);
-	 #filter: invert(50%);	 
-	 
-	 cursor: pointer;
+    -webkit-filter: saturate(50) hue-rotate(140deg); filter: saturate(50) hue-rotate(140deg);
+    // #filter: invert(50%);	 
+    cursor: pointer;
 }
+
 .profile {
-	width: 150px;
-	height: 150px;
+    width: 150px;
+    height: 150px;
 }
-
-
-
