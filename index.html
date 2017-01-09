@@ -9,41 +9,15 @@
 <meta name="author" content="Osakeyhtiö OY">
 <script src="scripts/filereader.js" type="text/javascript"></script> 
 <script src="scripts/jquery-3.1.1.js" type="text/javascript"></script> 
-<script type="text/javascript">	
-	function getPage() {
-		//document.getElementById('text-file').scrollTop = 0;
-		//document.getElementById("text-file").scrollTo(0,0);
-		var result = document.querySelector('input[name="radios"]:checked').value;
-		return result;
-	}
-	function gotoHeader() {
-		
-		var result = document.querySelector('input[name="sub_radios"]:checked').id;
-		if(result === "0") {
-			 $('.content_text').animate({scrollTop:0}, 'slow');
-			return false;
-		}
-		else {
-		
-			var element = document.getElementById("text-file");
-			var rect = element.getBoundingClientRect();
-			var value = document.querySelector('input[name="sub_radios"]:checked').value;
-			
-			
-			$('.content_text').animate({scrollTop:value-rect.top}, 'slow');
-			return false;						
-		}
-	}
-	
-</script>
+
 </head>
 
-<body class = "body" onload="readFile('database/overview_content.html', document.getElementById('text-file'), document.getElementById('content_buttons'),0)">
+<body class = "body" onload="readFile('database/overview_content.html', document.getElementById('text-file'), document.getElementById('content_buttons'))">
 	
-	<div class = "header">
+	<div id="header">
 		
 	 <a href="index.html"><img src="images/hexat_ikonit/espot_ikonit_eSPOT.svg" class="headerlogo" ></a>		
-		<img src="images/hexat_ikonit/espot_ikonit_league.svg" class ="gamelogo" id="checked">
+		<img src="images/hexat_ikonit/espot_ikonit_league.svg" class ="gamelogo active">
 		<img src="images/hexat_ikonit/espot_ikonit_cs.svg" class ="gamelogo">
 		<img src="images/hexat_ikonit/espot_ikonit_dota2.svg" class ="gamelogo">
 		<img src="images/hexat_ikonit/espot_ikonit_heartstone.svg" class ="gamelogo">
@@ -53,40 +27,32 @@
 	
 	<div class = "container">
 		
-		<div class = "sidebar">	
+		<div class = "sidebar">				
 			
-			<br><br>
-			
-			 <nav class="mainmenu">
+			 <nav id="mainmenu">
 				
-				<!--<div class="describe_left">Overview</div> -->
-				<input id="M" value="overview_content.html" type="radio" name="radios" checked autocomplete="off" />
+				<img name= "overview_content.html" src="images/espot_ikonit_empty.png" class="main_button active" />
+				<!-- <img name= "overview_content.html" src="images/hexat_ikonit/espot_ikonit_league.svg" class="icon active"/> -->								
+				<img name="about_content.html" src="images/espot_ikonit_empty.png" class="main_button"/> 				
+				<img name="whopick_content.html" src="images/espot_ikonit_empty.png" class="main_button"/>
+				<!-- <img name="whopick_content.html" src="images/hexat_ikonit/espot_ikonit_kadet.svg" class="icon"/> -->			
+				<img name="ingamesuccess_content.html" src="images/espot_ikonit_empty.png" class="main_button"/>				
 				
-				<label for="M"><img src="images/espot_ikonit_empty.png" class="main_button_left"/></label>
-				<label for="M"><img src="images/hexat_ikonit/espot_ikonit_league.svg" class="icon"/></label>
-				
-				<br><br><br>
-				<!--<div class="describe_right">About</div>-->
-				<input id="L" value="about_content.html" type="radio" name="radios" />
-				<label for="L"><img src="images/espot_ikonit_empty.png" class="main_button_right"/></label>
-				
-				<br><br><br>
-				<!--<div class="describe_left">Champions</div>-->
-				<input id="H" value="whopick_content.html" type="radio" name="radios" />
-				<label for="H"><img src="images/espot_ikonit_empty.png" class="main_button_left"/></label>
-				<label for="M"><img src="images/hexat_ikonit/espot_ikonit_kadet.svg" class="icon"/></label>
-				<br><br><br>
-				<!--<div class="describe_right">In-game success</div>-->
-				<input id="S" value="ingamesuccess_content.html" type="radio" name="radios" />				
-				<label for="S"><img src="images/espot_ikonit_empty.png" class="main_button_right"/></label>
-				
-				<br><br><br>
-				<script type="text/javascript"> 
-					$(document.getElementsByName("radios")).click(function() {						
-					readFile('database/' +getPage(), document.getElementById('text-file'), document.getElementById('content_buttons'), document.getElementById('text-file').scrollTop);		
-					
-				});</script>
 			</nav> 
+				
+				<script type="text/javascript"> 
+					var header = document.getElementById("header");
+					
+					var mainmenu = document.getElementById("mainmenu");	
+					mainmenu.addEventListener("click", makeMainClick );		
+					var activebutton = 0;
+					var images = mainmenu.getElementsByTagName("img");
+					var offset = mainmenu.getBoundingClientRect().top + 20;
+					images[0].style.top = offset +"px";
+					setMainButtons();					
+					
+				</script>
+			
 		
 		</div>
 		
@@ -102,6 +68,21 @@
 				</div>			
 		</div>
 		</div>
-	
+	<script type="text/javascript">
+			
+			var contentmenu = document.getElementById("content_buttons");	
+			var headerHeight = contentmenu.getBoundingClientRect().top;
+			contentmenu.addEventListener("click", makeContentClick );
+			
+			
+			var images = mainmenu.getElementsByTagName("img");
+			var textfield = document.getElementById("text-file");
+			var contentheaders = textfield.getElementsByTagName("h2");
+			//textfield.addEventListener("scroll", console.log(textfield.scrollTop));
+			textfield.addEventListener("scroll", checkHeader);
+			var buttons = contentmenu.getElementsByTagName('IMG');
+			
+			
+	</script>
 </body>
 </html>
