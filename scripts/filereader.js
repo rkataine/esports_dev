@@ -78,8 +78,7 @@ function makeContentClick(e) {
 	}		
 }
 
-function setMainButtons() {
-						
+function setMainButtons() {				
 						
 	for(i=0;i<images.length; i++) {
 		if(images[i].classList.contains("active")) {

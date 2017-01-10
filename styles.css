@@ -119,15 +119,11 @@ html {
 }
 
 .sidebar {
-
 	float: left;
-	height: 100%;
-	
-	width: 100px;
-	
+	height: 100%;	
+	width: 100px;	
 	cursor:default;
-	color:#000;
-	
+	color:#000;	
 }
 
 .sidebar:after {
