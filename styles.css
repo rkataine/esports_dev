@@ -1,40 +1,43 @@
 @font-face {
     font-family: PixelFont;
     src: url('fonts/Beefd.ttf'); 	
-	
 }
+
 @font-face {
     font-family: RegularText;
     src: url('fonts/ArchivoNarrow-Regular.ttf'); 
 }
-html {
-	height: 100%;
-}
-.body {
-	font-family:'RegularText';	
 
-	height: 100%;
-	
-	background-color:#fff;
-	margin:0;
-	padding:0;
+html { 
+    height: 100%;
+}
+
+.body {
+    font-family: 'RegularText';	
+    height: 100%;
+    background-color: #fff;
+    margin: 0;
+    padding: 0;
 }
 
 .headerlogo {	
+
 	position:relative;
 	width:auto;
 	height:90%;
 	padding-left: 10px;
 	padding-top: 5px;
-	
+
 }
+
 .gamelogo {
-	position:relative;
-	width:auto;
-	height:40px;
-	padding-bottom: 40px;
-	padding-left:20px;
+    position: relative;
+    width: auto;
+    height: 40px;
+    padding-bottom: 40px;
+    padding-left: 20px;
 }
+
 .gamelogo.active {
 	position:relative;
 	-webkit-filter: saturate(50) hue-rotate(140deg); filter: saturate(50) hue-rotate(140deg);
@@ -80,18 +83,17 @@ html {
 	opacity:0.7;
 	
 }
+
 .container {
-	
-	
-	display: flex;
-	width: 100%;
-	height: -o-calc(100% - 105px); /* opera */
-	height: -webkit-calc(100% - 105px); /* google, safari */
-	height: -moz-calc(100% - 105px); /* firefox */
-	
+    display: flex;
+    width: 100%;
+    height: -o-calc(100% - 105px); /* opera */
+    height: -webkit-calc(100% - 105px); /* google, safari */
+    height: -moz-calc(100% - 105px); /* firefox */
 }
 
 .container:after {
+
 	background-image: url('images/background.png');
 	background-repeat: no-repeat;
 	background-size: 100%;
@@ -104,19 +106,20 @@ html {
 	right: 0;
 	position: absolute;
 	z-index: -1;   
+
 }
+
 .content_buttons {
-	width: 50px;
-	top: 0px;
-	height: 100%;
-	position:relative;
-	background-color: rgb(235,235,235); 
-	opacity: 1;
+    width: 50px;
+    top: 0px;
+    height: 100%;
+    position: relative;
+    background-color: rgb(235,235,235); 
+    opacity: 1;
 }
-
-
 
 .sidebar {
+
 	float: left;
 	height: 100%;
 	
@@ -141,14 +144,12 @@ html {
 	z-index: -1;   
 }
 
-
 .content_image {
-	width: 350px;
+    width: 350px;
 }
 
 .content_text {
-	
-	
+
 	width:100%;	
 	height:100%;
 	margin-left: 0px;
@@ -156,105 +157,100 @@ html {
 	border: none;
 	overflow: scroll;
 	overflow-x: hidden;
+
 }
+
 .content img {
-	
-	max-width: -o-calc(100%); /* opera */
-	max-width: -webkit-calc(100%); /* google, safari */
-	max-width: -moz-calc(100%); /* firefox */
+    max-width: -o-calc(100%); /* opera */
+    max-width: -webkit-calc(100%); /* google, safari */
+    max-width: -moz-calc(100%); /* firefox */
 }
+
 .content {
-	position:relative;
-	top:0px;
-	background-color: rgba(255, 255, 255,0.7);
-	font-family: 'RegularText';
-	float: left;
-	color:rgb(95, 94, 93);
-	max-width:800px;	
-	width: -o-calc(100% - 300px); /* opera */
-	width: -webkit-calc(100% - 300px); /* google, safari */
-	width: -moz-calc(100% - 300px); /* firefox */
-	
-	height:100%;
-	padding-left: 0px;	
-	border: none;
-	height:100%;
+    position: relative;
+    top: 0px;
+    background-color: rgba(255, 255, 255,0.7);
+    font-family: 'RegularText';
+    float: left;
+    color: rgb(95, 94, 93);
+    max-width: 800px;	
+    width: -o-calc(100% - 300px); /* opera */
+    width: -webkit-calc(100% - 300px); /* google, safari */
+    width: -moz-calc(100% - 300px); /* firefox */
+    height: 100%;
+    padding-left: 0px;	
+    border: none;
+    height: 100%;
 }
 
 .gray_back {
-	background-color: rgba(200, 200, 200,0.7);
-
+    background-color: rgba(200, 200, 200,0.7);
+    width: 100%;
 }
+
 .white_back {
-	background-color: rgba(255, 255, 255,0.7);
+    background-color: rgba(255, 255, 255,0.7);
+    width: 100%;
+}
 
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
 }
+
 h1 {
-	text-shadow: 4px 4px 4px #ddbbbb;
-	font-size: 20px;
-	font-family: 'PixelFont';	
-	padding-left:4px;
-	color: rgb(87,88,91);
+    text-shadow: 4px 4px 4px #ddbbbb;
+    font-size: 20px;
+    font-family: 'PixelFont';	
+    padding-left: 4px;
+    color: rgb(87,88,91);
 }
+
 h2 {
-	text-shadow: 4px 4px 4px #ddbbbb;
-	font-size: 18px;
-	font-family: 'PixelFont';	
-	padding-left:4px;
-	color: rgb(87,88,91);
-	text-align: center;
+    text-shadow: 4px 4px 4px #ddbbbb;
+    font-size: 18px;
+    font-family: 'PixelFont';	
+    padding-left: 4px;
+    color: rgb(87,88,91);
+    text-align: center;
 }
+
 h3 {
-	text-shadow: 4px 4px 4px #ddbbbb;
-	font-size: 16px;
-	font-family: 'PixelFont';	
-	padding-left:4px;
-	color: rgb(87,88,91);
+    text-shadow: 4px 4px 4px #ddbbbb;
+    font-size: 16px;
+    font-family: 'PixelFont';	
+    padding-left: 4px;
+    color: rgb(87,88,91);
 }
 
 img {
-	-ms-interpolation-mode: bicubic;
-}
-a {
-	text-decoration:none;
-	color:rgb(235, 26, 35);
-	
-}
-a:visited {
-	color:rgb(235, 26, 35);
-}
-a:hover {
-	color:rgb(150, 26, 35);
-}
-.mainmenu div {
-	font-size: 14px;
-	
+    -ms-interpolation-mode: bicubic;
 }
 
+a {
+    text-decoration:none;
+    color:rgb(235, 26, 35);
+}
+
+a:visited {
+    color:rgb(235, 26, 35);
+}
+
+a:hover {
+    color:rgb(150, 26, 35);
+}
+
+.mainmenu div {
+    font-size: 14px;
+}
+
+
 .masterbar {
-	width: 100px;
-	
+    width: 100px;
+
 }
-/*
-.main_button_left {
-	width: 50px;
-	height: auto;
-	
-	-webkit-animation: mainbuttons 2s;
-	-moz-animation: mainbuttons 2s;
-	-o-animation: mainbuttons 2s;
-}
-.main_button_right {
-	
-	width: 50px;
-	height: auto;
-	
-	
-	-webkit-animation: mainbuttons 2s;
-	-moz-animation: mainbuttons 2s;
-	-o-animation: mainbuttons 2s;
-}
-*/
+
 .main_button {
 	width: 50px;
 	height: auto;
@@ -272,15 +268,17 @@ a:hover {
 
 
 img.icon {
-	position: relative;
-	left: 14px;
-	top: 14px;
-	width: 25px;
-	-webkit-animation: mainlogos 2s;
-	-moz-animation: mainlogos 2s;
-	-o-animation: mainlogos 2s;
+    position: relative;
+    left: 14px;
+    top: 14px;
+    width: 25px;
+    -webkit-animation: mainlogos 2s;
+    -moz-animation: mainlogos 2s;
+    -o-animation: mainlogos 2s;
 }
+
 .mainmenu label {
+
   position: fixed;
   display: inline-block;  
  
@@ -352,7 +350,5 @@ img.icon {
 	-webkit-filter: saturate(50) hue-rotate(140deg); filter: saturate(50) hue-rotate(140deg);
 	 
 	 cursor: pointer;
+
 }
-
-
-
