@@ -43,14 +43,14 @@ print ranked
 rankedopen = urllib.urlopen(ranked)
 rankedstats = json.load(rankedopen)
 rankedstats = rankedstats['champions'][0]['stats']
-rankedstats_psysicaldamage = rankedstats['totalPhysicalDamageDealt']
+rankedstats_physicaldamage = rankedstats['totalPhysicalDamageDealt']
 rankedstats_totalturretskilled = rankedstats['totalTurretsKilled']
-rankedstats_totaldamagedealts = rankedstats['totalDamageDealt']
+rankedstats_totaldamagedealt = rankedstats['totalDamageDealt']
 print
 print "Summoner Name:", summoner
 print "Region:", region
 print
 print "STATS:"
-print "Psysical Damage Dealt:", rankedstats_psysicaldamage
+print "Physical Damage Dealt:", rankedstats_physicaldamage
 print "Turrets Killed:", rankedstats_totalturretskilled
-print "Total Damage Dealt;", rankedstats_totaldamagedealts
+print "Total Damage Dealt;", rankedstats_totaldamagedealt
