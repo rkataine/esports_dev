@@ -42,7 +42,7 @@ print ranked
 
 rankedopen = urllib.urlopen(ranked)
 rankedstats = json.load(rankedopen)
-rankedstats = rankedstats['champions'][0]['stats']
+rankedstats = rankedstats['champions'][-1]['stats']
 rankedstats_physicaldamage = rankedstats['totalPhysicalDamageDealt']
 rankedstats_totalturretskilled = rankedstats['totalTurretsKilled']
 rankedstats_totaldamagedealt = rankedstats['totalDamageDealt']
