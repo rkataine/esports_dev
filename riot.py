@@ -31,7 +31,7 @@ while True:
 
 idsearch = "https://"+ region + ".api.pvp.net/api/lol/" + region + "/v1.4/summoner/by-name/" + summoner + "?api_key=" + key  #Summoner ID-haku
 
-#ID Json-build
+#ID JSON-build
 idgrep = urllib.urlopen(idsearch)
 response = json.load(idgrep)
 
