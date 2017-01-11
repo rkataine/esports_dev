@@ -56,7 +56,9 @@ m_score = urllib.urlopen(masteryscore)
 m_score = json.load(m_score)
 rankedopen = urllib.urlopen(ranked)
 rankedstats = json.load(rankedopen)
+#Main Stats haku (combined champion stats)
 rankedstats = rankedstats['champions'][-1]['stats']
+#Alahaut
 rankedstats_physicaldamage = rankedstats['totalPhysicalDamageDealt']
 rankedstats_totalturretskilled = rankedstats['totalTurretsKilled']
 rankedstats_totaldamagedealt = rankedstats['totalDamageDealt']
