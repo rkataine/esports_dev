@@ -46,11 +46,22 @@ rankedstats = rankedstats['champions'][0]['stats']
 rankedstats_physicaldamage = rankedstats['totalPhysicalDamageDealt']
 rankedstats_totalturretskilled = rankedstats['totalTurretsKilled']
 rankedstats_totaldamagedealt = rankedstats['totalDamageDealt']
+rankedstats_totalmagicdamagedealt = rankedstats['totalMagicDamageDealt']
+rankedstats_totaldoublekills = rankedstats['totalDoubleKills']
+rankedstats_totalpentakills = rankedstats['totalPentaKills']
+rankedstats_totaltriplekills = rankedstats['totalTripleKills']
+
 print
 print "Summoner Name:", summoner
 print "Region:", region
+print "Summoner ID:", ID
 print
-print "STATS:"
-print "Physical Damage Dealt:", rankedstats_physicaldamage
+print "Offensive Stats:"
+print "Total Damage Dealt:", rankedstats_totaldamagedealt
+print "Psysical Damage Dealt:", rankedstats_physicaldamage
+print "Total Magic Damage Dealt:", rankedstats_totalmagicdamagedealt
 print "Turrets Killed:", rankedstats_totalturretskilled
-print "Total Damage Dealt;", rankedstats_totaldamagedealt
+print "Double Kills:", rankedstats_totaldoublekills
+print "Triple Kills:", rankedstats_totaltriplekills
+print "Penta Kills:", rankedstats_totalpentakills
+
