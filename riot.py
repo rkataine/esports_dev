@@ -51,7 +51,7 @@ ID = str(ID)
 masteryscore = "https://"+ region +".api.pvp.net/championmastery/location/EUN1/player/"+ ID + "/score?api_key=" + key #Mastery-haku
 ranked = "https://"+ region + ".api.pvp.net/api/lol/" + region + "/v1.3/stats/by-summoner/" + ID + "/ranked?season=SEASON2016&api_key=" + key #Ranked Stats-haku
 
-#Mastery / Ranked Json lataus + Stats haut/variaabeliluonnit
+#Mastery / Ranked JSON lataus + Stats haut/variaabeliluonnit
 m_score = urllib.urlopen(masteryscore)
 m_score = json.load(m_score)
 rankedopen = urllib.urlopen(ranked)
