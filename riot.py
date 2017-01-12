@@ -53,7 +53,6 @@ masteryscore = "https://"+ region +".api.pvp.net/championmastery/location/EUN1/p
 ranked = "https://"+ region + ".api.pvp.net/api/lol/" + region + "/v1.3/stats/by-summoner/" + ID + "/ranked?season=SEASON2016&api_key=" + key #Ranked Stats-haku
 matchlist = "https://"+ region +".api.pvp.net/api/lol/"+ region +"/v2.2/matchlist/by-summoner/"+ ID +"?api_key=" + key #Matsihaku
 
-
 #Mastery JSON
 m_score = urllib.urlopen(masteryscore)
 m_score = json.load(m_score)
@@ -61,7 +60,15 @@ m_score = json.load(m_score)
 #Ranked JSON lataus + Stats haut/variaabeliluonnit
 rankedopen = urllib.urlopen(ranked)
 rankedstats = json.load(rankedopen)
-rankedstats = rankedstats['champions'][-1]['stats']
+
+try:
+    rankedstats = rankedstats['champions'][-1]['stats']
+except Exception:
+    print "No Ranked Statistics!"
+    print "Logging out..."
+    time.sleep(2)
+    exit()
+
 rankedstats_physicaldamage = rankedstats['totalPhysicalDamageDealt']
 rankedstats_totalturretskilled = rankedstats['totalTurretsKilled']
 rankedstats_totaldamagedealt = rankedstats['totalDamageDealt']
@@ -78,7 +85,6 @@ matches = []
 matchhistory = urllib.urlopen(matchlist)
 matchhistory = json.load(matchhistory)
 m_history = matchhistory['matches']
-
 
 #Season History
 seasons = [li['season'] for li in  m_history]
@@ -119,7 +125,9 @@ print "Double Kills :", rankedstats_totaldoublekills
 print "Triple Kills :", rankedstats_totaltriplekills
 print "Penta Kills :", rankedstats_totalpentakills
 print
+print "Champion Statistics:"
 print "Champion Mastery Score:", m_score
+print
 print "Your Most Used Champions:"
 for champion in sorted_champs:
     champion = "".join(str(champion))
@@ -137,4 +145,4 @@ for champion in sorted_champs:
 print
 print "Your Playing History in Games Played:"
 for k, v in season_activity.items():
-    print "Season:", k, "Games Played:", v	
+    print k,":", v	
