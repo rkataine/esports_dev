@@ -67,7 +67,7 @@
 		
 		<div class = "content_text" id="text-file"></div>
 		
-		<!-- <canvas id="content_scrollbar"></canvas> -->
+		<canvas id="content_scrollbar"></canvas>
 		
 		</div>
 	<script type="text/javascript">
@@ -75,14 +75,25 @@
 			var contentmenu = document.getElementById("content_buttons");	
 			var headerHeight = contentmenu.getBoundingClientRect().top;
 			contentmenu.addEventListener("click", makeContentClick );
-			//drawScrollbar();
+			
 			
 			var images = mainmenu.getElementsByTagName("img");
 			var textfield = document.getElementById("text-file");
-			var contentheaders = textfield.getElementsByTagName("h2");
+			//var contentheaders = textfield.getElementsByTagName("h2");
 			//textfield.addEventListener("scroll", console.log(textfield.scrollTop));
 			textfield.addEventListener("scroll", checkHeader);
-			var buttons = contentmenu.getElementsByTagName('IMG');
+			
+			var c=document.getElementById("content_scrollbar");
+			c.width = 30;
+			c.height =  document.getElementById("text-file").getBoundingClientRect().height;	
+			var ctx=c.getContext("2d");	
+			active = "#FF0000";
+			basic = "#777777";
+			ctx.lineWidth = 5;
+			ctx.strokeStyle = basic;
+			var middle = c.width/2;
+		
+		
 			
 			
 	</script>

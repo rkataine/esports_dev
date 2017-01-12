@@ -1,4 +1,6 @@
 
+var contentbuttons;
+var contentheaders;
 function readFile(file, out, out2) {
 	
 var http = new XMLHttpRequest();
@@ -13,7 +15,7 @@ http.onreadystatechange = function () {
 			
 			var result = "<img name='#top' src='images/espot_ikonit_empty.png' class='content_button active'/><br><br>";
 			
-			var contentheaders = out.getElementsByTagName("h2");	
+			contentheaders = out.getElementsByTagName("h2");	
 			var buttonoffset = images[activebutton].offsetTop - images[activebutton].parentNode.getBoundingClientRect().top +18;
 			
 			for (i = 0; i < contentheaders.length; i++) {								
@@ -24,7 +26,7 @@ http.onreadystatechange = function () {
 			
 			out.scrollTop = 0;
 			out2.innerHTML = result;	
-			var contentbuttons = out2.getElementsByClassName("content_button");
+			contentbuttons = out2.getElementsByClassName("content_button");
 			
 			contentbuttons[0].style.top = buttonoffset +"px";
 			contentbuttons[0].style.left = "0px";
@@ -39,10 +41,13 @@ http.onreadystatechange = function () {
 					contentbuttons[i].style.left = "0px";
 				}
 			}			
+			
         }
+		drawScrollbar();
     }	
 };
 http.send();
+
 }
 function makeMainClick(e) {						
 	if(e.target.nodeName == "IMG") {
@@ -111,7 +116,7 @@ function setMainButtons() {
 		
 	}	
 }
-
+var activebutton = 0;
 
 function checkHeader() {
 	/*if(textfield.scrollTop > 20) {
@@ -126,15 +131,19 @@ function checkHeader() {
 	}*/
 	
 	if(contentheaders[0].getBoundingClientRect().top-headerHeight > 10) {
-		if(!buttons[0].classList.contains("active")) {
+		
+		if(!contentbuttons[0].classList.contains("active")) {
 			
-			for(j=1; j<buttons.length; j++) {
-				buttons[j].classList.remove("active");
+			for(j=1; j<contentbuttons.length; j++) {
+				contentbuttons[j].classList.remove("active");
 			}
-			buttons[0].classList.add("active");
+			contentbuttons[0].classList.add("active");
+			activebutton = 0;
+			drawScrollbar();		
 		}
 	}
 	else {
+		
 		var lowest = 0;
 		for(var i = 0; i<contentheaders.length; i++) {					
 			if(contentheaders[i].getBoundingClientRect().top-headerHeight < 10) {
@@ -144,38 +153,71 @@ function checkHeader() {
 				break;
 			}
 		}
-		if(!buttons[lowest+1].classList.contains("active")) {
-			for(j=0; j<buttons.length; j++) {
-				buttons[j].classList.remove("active");
+		if(!contentbuttons[lowest+1].classList.contains("active")) {
+			for(j=0; j<contentbuttons.length; j++) {
+				contentbuttons[j].classList.remove("active");
 			}
 			
-			buttons[lowest+1].classList.add("active");							
+			contentbuttons[lowest+1].classList.add("active");	
+			activebutton = lowest+1;
 		}
+		drawScrollbar();	
 	}
+	
+}
+function map(value,istart,istop,ostart, ostop) {
+    return ostart + (ostop - ostart) * ((value - istart) / (istop - istart));
 }
 
 
 function drawScrollbar() {
-	var c=document.getElementById("content_scrollbar");
-	var y = 50;
 	
-	var r = 22;
-	var ctx=c.getContext("2d");
-	c.width = 50;
-	var x = c.width/2;
-	c.height =  document.getElementById("text-file").getBoundingClientRect().height;
-	ctx.lineWidth=5;
-	ctx.strokeStyle="#777777";	
-	ctx.beginPath();	
+	
 
-	ctx.moveTo(x,y-r);	
-	ctx.lineTo(x+r,(y-r)+r/2);	
-	ctx.moveTo(x+r,(y-r)+r/2);
-	ctx.lineTo(x+r,y+r/2);
-	ctx.stroke(); 
+	ctx.clearRect(0, 0, c.width, c.height);
+	
+	
+	var preypos = 6;
+	
+	for(var i=0;i<contentheaders.length;i++) {
+		var ypos = map(contentheaders[i].offsetTop,0,textfield.scrollHeight, 0, c.height);
+		
+		
+		ctx.beginPath();
+		ctx.moveTo(middle,ypos);
+		ctx.lineTo(middle,preypos+20);		
+		ctx.stroke(); 		
+		if(i != activebutton-1) {
+			drawHexagon(ctx,middle,ypos,10,5,basic);	
+		}
+		
+		preypos = ypos;
+	}
+	if(activebutton > 0) {
+		ypos = map(contentheaders[activebutton-1].offsetTop,0,textfield.scrollHeight, 0, c.height);
+		drawHexagon(ctx,middle,ypos,10,5,active);	
+		drawHexagon(ctx, middle, 6, 10, 5, basic);	
+	}
+	else {		
+		drawHexagon(ctx, middle, 6, 10, 5, active);	
+		
+	}
 	
 }
 
+function drawHexagon(context,x,y,r,thickness, color) {	
+	
+	context.fillStyle=color;	
+	context.translate(x,y);
+	context.rotate(-Math.PI/3);	
+	context.fillRect(0,-thickness/2,thickness,r+thickness);
+	for(var i=0;i<5;i++) {
+		context.translate(0,r);
+		context.rotate(Math.PI/3);		
+		context.fillRect(0,-thickness/2,thickness,r+thickness);	
+	}	
+	context.setTransform(1, 0, 0, 1, 0, 0);
+}
 
 
 
