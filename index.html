@@ -29,9 +29,10 @@
 		
 		<div class = "sidebar">				
 			
-			 <nav id="mainmenu">				
+			 <nav id="mainmenu">	
+				
 				<img name= "overview_content.html" src="images/espot_ikonit_empty.png" class="main_button active" />
-				<!-- <img name= "overview_content.html" src="images/hexat_ikonit/espot_ikonit_league.svg" class="icon active"/> -->								
+				<!-- <img src="images/hexat_ikonit/espot_ikonit_league.svg" class="icon active"/>							 -->
 				<img name="about_content.html" src="images/espot_ikonit_empty.png" class="main_button"/> 				
 				<img name="whopick_content.html" src="images/espot_ikonit_empty.png" class="main_button"/>
 				<!-- <img name="whopick_content.html" src="images/hexat_ikonit/espot_ikonit_kadet.svg" class="icon"/> -->			
@@ -41,12 +42,13 @@
 			</nav> 
 				
 				<script type="text/javascript"> 
+					
 					var header = document.getElementById("header");
 					
 					var mainmenu = document.getElementById("mainmenu");	
 					mainmenu.addEventListener("click", makeMainClick );		
 					var activebutton = 0;
-					var images = mainmenu.getElementsByTagName("img");
+					var images = mainmenu.getElementsByClassName("main_button");
 					var offset = mainmenu.getBoundingClientRect().top + 20;
 					images[0].style.top = offset +"px";
 					setMainButtons();					
@@ -62,18 +64,18 @@
 				
 			
 		</div>
-		<div class = "content">
-				<div class = "content_text" id="text-file">
-				
-				</div>			
-		</div>
+		
+		<div class = "content_text" id="text-file"></div>
+		
+		<!-- <canvas id="content_scrollbar"></canvas> -->
+		
 		</div>
 	<script type="text/javascript">
 			
 			var contentmenu = document.getElementById("content_buttons");	
 			var headerHeight = contentmenu.getBoundingClientRect().top;
 			contentmenu.addEventListener("click", makeContentClick );
-			
+			//drawScrollbar();
 			
 			var images = mainmenu.getElementsByTagName("img");
 			var textfield = document.getElementById("text-file");

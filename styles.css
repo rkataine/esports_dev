@@ -144,6 +144,18 @@ html {
     width: 350px;
 }
 
+
+#content_scrollbar {
+
+	width:50px;	
+	height:100%;
+	 
+	
+	border: none;
+	overflow: hidden;
+	background: #fff;
+
+}
 .content_text {
 
 	width:100%;	
@@ -156,20 +168,20 @@ html {
 
 }
 
-.content img {
+.content_text img {
     max-width: -o-calc(100%); /* opera */
     max-width: -webkit-calc(100%); /* google, safari */
     max-width: -moz-calc(100%); /* firefox */
 }
 
-.content {
+.content_text {
     position: relative;
     top: 0px;
     background-color: rgba(255, 255, 255,0.7);
     font-family: 'RegularText';
     float: left;
     color: rgb(95, 94, 93);
-    max-width: 800px;	
+    max-width: 600px;	
     width: -o-calc(100% - 300px); /* opera */
     width: -webkit-calc(100% - 300px); /* google, safari */
     width: -moz-calc(100% - 300px); /* firefox */
@@ -250,53 +262,10 @@ a:hover {
 .main_button {
 	width: 50px;
 	height: auto;
-}
-.content_button {
 	
-	width: 30px;
-	height: auto;
-	opacity: 1;
-	-webkit-animation: contentbuttons 2s;
-	-moz-animation: contentbuttons 2s;
-	-o-animation: contentbuttons 2s;
-    
 }
 
-
-img.icon {
-    position: relative;
-    left: 14px;
-    top: 14px;
-    width: 25px;
-    -webkit-animation: mainlogos 2s;
-    -moz-animation: mainlogos 2s;
-    -o-animation: mainlogos 2s;
-}
-
-.mainmenu label {
-
-  position: fixed;
-  display: inline-block;  
- 
-  margin-left: 20px; 
-  
-  transition: all 0.1s ease-in-out;
-
-  }
-.contentmenu label {
-  position: fixed;
-  display: inline-block;  
- 
-  margin-top: 20px;
-  margin-left: 2px; 
-  
-  transition: all 0.1s ease-in-out;
-
-  }
-   
-	@keyframes describes { from {font-size:0px;} to {font-size: 14px;} }
-	@-o-keyframes describes { from {font-size:0px;} to {font-size: 14px;}}
-	@-moz-keyframes describes { from {font-size:0px;} to {font-size: 14px;}}	
+	
 	@keyframes contentbuttons { from {width:0px;} to {width: 30px;} }
 	@-o-keyframes contentbuttons { from {width:0px;} to {width: 30px;}}
 	@-moz-keyframes contentbuttons { from {width:0px;} to {width: 30px;}}
@@ -312,10 +281,58 @@ img.icon {
 	@-moz-keyframes activebutton { from {left:0px;} to {left: 50px;} } 
 	@keyframes activebutton { from {left:0px;} to {left: 50px;} } 
 	
-	
+	@keyframes pulse {
+		0% {
+		-moz-transform: scale(0.85);
+		transform: scale(0.85);
+		} 
+	50% {
+		-moz-transform: scale(1);
+		transform: scale(1);
+		} 
+	100% {
+		-moz-transform: scale(0.85);
+		transform: scale(0.85);
+		} 
+	}
+	@-o-keyframes pulse {
+		0% {
+		-moz-transform: scale(0.85);
+		transform: scale(0.85);
+		} 
+	50% {
+		-moz-transform: scale(1);
+		transform: scale(1);
+		} 
+	100% {
+		-moz-transform: scale(0.85);
+		transform: scale(0.85);
+		} 
+	}
+	@-moz-keyframes pulse { 
+	0% {
+		-moz-transform: scale(0.85);
+		transform: scale(0.85);
+		} 
+	50% {
+		-moz-transform: scale(1);
+		transform: scale(1);
+		} 
+	100% {
+		-moz-transform: scale(0.85);
+		transform: scale(0.85);
+		} 
+	}
+
+.icon {
+		
+	width: 20px;
+}	
 #mainmenu img {
 	position: absolute;
-	
+	-moz-animation: pulse 4s linear infinite;
+	-webkit-animation: pulse 4s linear infinite;
+	-o-animation: pulse 4s linear infinite;
 }	
 	
 #mainmenu img:hover {	 
@@ -327,9 +344,10 @@ img.icon {
 	-webkit-filter: saturate(50) hue-rotate(140deg); filter: saturate(50) hue-rotate(140deg);
 	left:40px;
 	cursor: pointer;
-	-moz-animation: activebutton 1s;  
-	-webkit-animation: activebutton 1s;	
-	-o-animation: activebutton 1s;
+	-moz-animation: activebutton 2s,pulse 3s linear infinite;
+	-webkit-animation: activebutton 2s,pulse 3s linear infinite;
+	-o-animation: activebutton 2s,pulse 3s linear infinite;
+	
 }
 
 #content_buttons img {
@@ -346,5 +364,17 @@ img.icon {
 	-webkit-filter: saturate(50) hue-rotate(140deg); filter: saturate(50) hue-rotate(140deg);
 	 
 	 cursor: pointer;
-
+	-webkit-animation: contentbuttons 2s, pulse 3s linear infinite;
+	-moz-animation: contentbuttons 2s, pulse 3s linear infinite;
+	-o-animation: contentbuttons 2s, pulse 3s linear infinite;
+}
+.content_button {
+	
+	width: 30px;
+	height: auto;
+	opacity: 1;
+	-webkit-animation: contentbuttons 2s, pulse 4s linear infinite;
+	-moz-animation: contentbuttons 2s, pulse 4s linear infinite;
+	-o-animation: contentbuttons 2s, pulse 4s linear infinite;
+    
 }

@@ -81,6 +81,7 @@ function makeContentClick(e) {
 function setMainButtons() {				
 						
 	for(i=0;i<images.length; i++) {
+		
 		if(images[i].classList.contains("active")) {
 			activebutton = i;
 			break;
@@ -154,7 +155,26 @@ function checkHeader() {
 }
 
 
+function drawScrollbar() {
+	var c=document.getElementById("content_scrollbar");
+	var y = 50;
+	
+	var r = 22;
+	var ctx=c.getContext("2d");
+	c.width = 50;
+	var x = c.width/2;
+	c.height =  document.getElementById("text-file").getBoundingClientRect().height;
+	ctx.lineWidth=5;
+	ctx.strokeStyle="#777777";	
+	ctx.beginPath();	
 
+	ctx.moveTo(x,y-r);	
+	ctx.lineTo(x+r,(y-r)+r/2);	
+	ctx.moveTo(x+r,(y-r)+r/2);
+	ctx.lineTo(x+r,y+r/2);
+	ctx.stroke(); 
+	
+}
 
 
 

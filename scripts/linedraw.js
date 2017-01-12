@@ -14,7 +14,7 @@ if (obj.offsetParent) {
 }
 result = findPos(document.getElementById('test'));
 
-var c=document.getElementById("mycanvas");
+var c=document.getElementById("content_scrollbar");
 var ctx=c.getContext("2d");
 ctx.beginPath();
 var middle = result.Y+result.H;
