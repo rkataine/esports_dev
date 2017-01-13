@@ -15,7 +15,7 @@ print curtains
 print "Espot.gg API-query"
 print "Enter your account details."
 print
-
+"""
 while True:
 	try:
 	    summoner = raw_input("Insert your summoner name:")
@@ -28,7 +28,9 @@ while True:
 	    break
 	except Exception:
 	    print "Something went wrong."
-	   
+"""
+summoner = "daelrune"
+region = "eune"
 
 idsearch = "https://"+ region + ".api.pvp.net/api/lol/" + region + "/v1.4/summoner/by-name/" + summoner + "?api_key=" + key  #Summoner ID-haku
 
