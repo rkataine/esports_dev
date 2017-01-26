@@ -1,11 +1,11 @@
 @font-face {
     font-family: PixelFont;
-    src: url('fonts/Beefd.ttf'); 	
+    src: url('../fonts/Beefd.ttf'); 	
 }
 
 @font-face {
     font-family: RegularText;
-    src: url('fonts/ArchivoNarrow-Regular.ttf'); 
+    src: url('../fonts/ArchivoNarrow-Regular.ttf'); 
 }
 
 html { 
@@ -20,17 +20,62 @@ html {
     padding: 0;
 }
 
-.headerlogo {	
+#header img.gamelogo.active {
+	position:relative;
+   -webkit-filter: saturate(50) hue-rotate(140deg); filter: saturate(50) hue-rotate(140deg);
+	width:auto;
+	height:40px;
+	padding-bottom: 30px;
+	padding-left:20px;
+}
+#header img.gamelogo:hover {
+	-webkit-filter: saturate(50) hue-rotate(140deg); filter: saturate(50) hue-rotate(140deg);
+	 height: 50px;
+	 cursor: pointer;
+	-webkit-animation: logos 0.5s;
+	-moz-animation: logos 0.5s;
+	-o-animation: logos 0.5s;
+}
+	@keyframes logos { from {height:40px;} to {height: 50px;}  }
+	@-o-keyframes logos { from {height:40px;} to {height: 50px;}  }
+	@-moz-keyframes logos { from {height:40px;} to {height: 50px;}  }
+	
+#header {	
+	background-color:rgb(255,255,255);
+	height: 100px;		
+	overflow:hidden;	
+}
 
+#header.scrolling {
+	height: 50px;
+}
+	
+#frontpage_header img.headerlogo {
+	position:relative;
+	width: 30%;	
+}
+.maintext {
+	font-size: 30px;
+}
+#frontpage_header img.gamelogo {
+	position:relative;
+	width: 100px;
+	padding-left: 20px;
+	
+}
+#frontpage_header img.gamelogo:hover {
+	-webkit-filter: saturate(50) hue-rotate(140deg); filter: saturate(50) hue-rotate(140deg);
+	cursor: pointer;
+}
+#header img.headerlogo {
 	position:relative;
 	width:auto;
 	height:90%;
 	padding-left: 10px;
 	padding-top: 5px;
-
 }
 
-.gamelogo {
+#header img.gamelogo {
     position: relative;
     width: auto;
     height: 40px;
@@ -38,38 +83,7 @@ html {
     padding-left: 20px;
 }
 
-.gamelogo.active {
-	position:relative;
-	-webkit-filter: saturate(50) hue-rotate(140deg); filter: saturate(50) hue-rotate(140deg);
-	width:auto;
-	height:40px;
-	padding-bottom: 30px;
-	padding-left:20px;
-}
-.gamelogo:hover {
-	-webkit-filter: saturate(50) hue-rotate(140deg); filter: saturate(50) hue-rotate(140deg);
-	 height: 50px;
-	 cursor: pointer;
-	 -webkit-animation: logos 0.5s;
-	-moz-animation: logos 0.5s;
-	-o-animation: logos 0.5s;
-}
-	@keyframes logos { from {height:40px;} to {height: 50px;}  }
-	@-o-keyframes logos { from {height:40px;} to {height: 50px;}  }
-	@-moz-keyframes logos { from {height:40px;} to {height: 50px;}  }
-#header{   	
-   
-	
-	background-color:rgb(255,255,255);
-	height: 100px;		
-	overflow:hidden;
-	
-}
-#header.scrolling {
-	height: 50px;
-}
-	
-.headerlogo:hover{
+#header img.headerlogo:hover{
 		
 	-webkit-animation: header 0.5s;
 	-moz-animation: header 0.5s;
@@ -78,10 +92,9 @@ html {
 	@keyframes header { 0% {height:90%;} 50% {height: 95%;} 100% {height: 90%;} }
 	@-o-keyframes header { 0% {height:90%;} 50% {height: 95%;} 100% {height: 90%;} }
 	@-moz-keyframes header { 0% {height:90%;} 50% {height: 95%;} 100% {height: 90%;} }
-#header:after{  
 	
-	opacity:0.7;
-	
+#header:after{	
+	opacity:0.7;	
 }
 
 .container {
@@ -94,7 +107,7 @@ html {
 
 .container:after {
 
-	background-image: url('images/background.png');
+	background-image: url('../images/background.png');
 	background-repeat: no-repeat;
 	background-size: 100%;
 	
@@ -114,7 +127,7 @@ html {
     top: 0px;
     height: 100%;
     position: relative;
-    background-color: rgb(235,235,235); 
+    background-color: rgb(235,235,235);
     opacity: 1;
 }
 
@@ -126,8 +139,8 @@ html {
 	color:#000;	
 }
 
-.sidebar:after {
-	background-image: url('images/circuit-board_white.png');
+/*.sidebar:after {
+	background-image: url('../images/circuit-board_white.png');
 	background-size: 300px;
 
 	content: ""; 
@@ -139,7 +152,7 @@ html {
 	position: absolute;
 	z-index: -1;   
 }
-
+*/
 .content_image {
     width: 350px;
 }

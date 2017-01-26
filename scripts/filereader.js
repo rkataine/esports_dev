@@ -13,13 +13,13 @@ http.onreadystatechange = function () {
 			out.innerHTML = http.responseText;			
 			var buttonclass = "class=\"main_button_left\"";
 			
-			var result = "<img name='#top' src='images/espot_ikonit_empty.png' class='content_button active'/><br><br>";
+			var result = "<img name='#top' src='../../images/hexat_ikonit/espot_ikonit_empty.png' class='content_button active'/><br><br>";
 			
 			contentheaders = out.getElementsByTagName("h2");	
 			var buttonoffset = images[activebutton].offsetTop - images[activebutton].parentNode.getBoundingClientRect().top +18;
 			
 			for (i = 0; i < contentheaders.length; i++) {								
-				result +=  "<img name=\""+contentheaders[i].id  +"\" src='images/espot_ikonit_empty.png' class='content_button'/><br><br>\n";				
+				result +=  "<img name=\""+contentheaders[i].id  +"\" src='../../images/hexat_ikonit/espot_ikonit_empty.png' class='content_button'/><br><br>\n";				
 			}
 			
 			
@@ -41,9 +41,9 @@ http.onreadystatechange = function () {
 					contentbuttons[i].style.left = "0px";
 				}
 			}			
-			
+			drawScrollbar();
         }
-		drawScrollbar();
+		
     }	
 };
 http.send();
@@ -178,7 +178,7 @@ function drawScrollbar() {
 	
 	
 	var preypos = 6;
-	
+	console.log(contentheaders.length);
 	for(var i=0;i<contentheaders.length;i++) {
 		var ypos = map(contentheaders[i].offsetTop,0,textfield.scrollHeight, 0, c.height);
 		
@@ -220,5 +220,46 @@ function drawHexagon(context,x,y,r,thickness, color) {
 }
 
 
-
+function animationTest() {
+		/*var canvas = document.getElementById("draw");
+		var ctx = canvas.getContext('2d');
+		var x = 10;
+		var y = 10;
+		var thickness = 4;
+		var r = 20;
+		var color = "black";
+		ctx.fillStyle="#000000";	
+		canvas.width = 500;
+		canvas.height = 500;
+		var frames = 0;
+		//var interval = setInterval(drawHexagon(ctx, 50,50,40,4,"black"), 100);
+		//var interval = setInterval(draw, 100);
+		//
+		drawHexagon(ctx, 100,100,40,4,"black");
+		var interval;
+		function drawHexagon(context,x,y,r,thickness, color) {	
+		   interval = setInterval(function() {animateLine(ctx,x,y,thickness,r); }, 100);
+		}
+		var increment = 0;
+		var sides = 0;
+		function animateLine(cont,x,y, width, height) {
+		   if(sides===0 && increment === 0) { 
+			context.translate(x,y); 
+			context.rotate(-Math.PI/3);}
+		   else if(sides !== 0 && increment === 0) { 
+			context.translate(0,r);  
+			context.rotate(Math.PI/3);
+		   }
+			if(increment >= height) {
+				increment = 0;
+				sides++;
+			}
+		  
+		  if(sides >=5) {
+			context.setTransform(1, 0, 0, 1, 0, 0);
+			clearInterval(interval);
+		  }
+		  increment++;
+	}*/
+}
 
