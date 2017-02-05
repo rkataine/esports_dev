@@ -11,34 +11,31 @@ http.onreadystatechange = function () {
 		
         if (http.responseText) {			
 			out.innerHTML = http.responseText;			
-			var buttonclass = "class=\"main_button_left\"";
-			
-			var result = "<img name='#top' src='../../images/hexat_ikonit/espot_ikonit_empty.png' class='content_button active'/><br><br>";
+				
+			var result = "<div id='#top' class='content_button active'><h4>Top</h4></div>\n";
 			
 			contentheaders = out.getElementsByTagName("h2");	
-			var buttonoffset = images[activebutton].offsetTop - images[activebutton].parentNode.getBoundingClientRect().top +18;
+			var buttonoffset = 0;
 			
 			for (i = 0; i < contentheaders.length; i++) {								
-				result +=  "<img name=\""+contentheaders[i].id  +"\" src='../../images/hexat_ikonit/espot_ikonit_empty.png' class='content_button'/><br><br>\n";				
-			}
-			
-			
+				result +=  "<div id='#"+contentheaders[i].id  +"' class='content_button'><h4>"+contentheaders[i].id +"</h4></div>\n";				
+			}			
 			
 			out.scrollTop = 0;
 			out2.innerHTML = result;	
-			contentbuttons = out2.getElementsByClassName("content_button");
+			contentbuttons = out2.getElementsByClassName("content_button");			
+			contentbuttons[0].style.top = "10px";
+			contentbuttons[0].style.left = "5px";
 			
-			contentbuttons[0].style.top = buttonoffset +"px";
-			contentbuttons[0].style.left = "0px";
 			for(var i=1; i<contentbuttons.length; i++) {
 				
-				contentbuttons[i].style.top = parseInt(contentbuttons[i-1].style.top) + 23 +"px";
+				contentbuttons[i].style.top = parseInt(contentbuttons[i-1].style.top) -12 +"px";
 				
-				if(parseInt(contentbuttons[i-1].style.left,10) < 5) {
-					contentbuttons[i].style.left = 15 +"px";
+				if(parseInt(contentbuttons[i-1].style.left,10) < 15) {
+					contentbuttons[i].style.left = 16 +"px";
 				}
 				else {
-					contentbuttons[i].style.left = "0px";
+					contentbuttons[i].style.left = "5px";
 				}
 			}			
 			drawScrollbar();
@@ -49,8 +46,9 @@ http.onreadystatechange = function () {
 http.send();
 
 }
-function makeMainClick(e) {						
-	if(e.target.nodeName == "IMG") {
+function makeMainClick(e) {		
+				
+	if(e.target.nodeName == "DIV") {
 		
 		var current = e.target;
 		for(i=0; i<current.parentNode.children.length; i++) {
@@ -58,13 +56,50 @@ function makeMainClick(e) {
 		}
 		current.classList.add("active");
 		setMainButtons();
-		readFile('database/' +current.name, document.getElementById('text-file'), document.getElementById('content_buttons'), document.getElementById('text-file').scrollTop);					
+		readFile('database/' +current.id, document.getElementById('text-file'), document.getElementById('content_buttons'), document.getElementById('text-file').scrollTop);					
 		
 	
-	}		
+	}	
+	else if(e.target.parentNode.nodeName == "DIV") {
+		var current = e.target.parentNode;
+		for(i=0; i<current.parentNode.children.length; i++) {
+			current.parentNode.children[i].classList.remove("active");
+		}
+		current.classList.add("active");
+		
+		setMainButtons();
+		readFile('database/' +current.id, document.getElementById('text-file'), document.getElementById('content_buttons'), document.getElementById('text-file').scrollTop);					
+		
+	}
+}
+function makeTier2Click(e) {		
+				
+	if(e.target.nodeName == "DIV") {
+		
+		var current = e.target;
+		for(i=0; i<current.parentNode.children.length; i++) {
+			current.parentNode.children[i].classList.remove("active");
+		}
+		current.classList.add("active");
+		setMainButtons();
+		readFile('database/' +current.id, document.getElementById('text-file'), document.getElementById('content_buttons'), document.getElementById('text-file').scrollTop);					
+		
+	
+	}	
+	else if(e.target.parentNode.nodeName == "DIV") {
+		var current = e.target.parentNode;
+		for(i=0; i<current.parentNode.children.length; i++) {
+			current.parentNode.children[i].classList.remove("active");
+		}
+		current.classList.add("active");
+		
+		setMainButtons();
+		readFile('database/' +current.id, document.getElementById('text-file'), document.getElementById('content_buttons'), document.getElementById('text-file').scrollTop);					
+		
+	}
 }
 function makeContentClick(e) {						
-	if(e.target.nodeName == "IMG") {
+	if(e.target.nodeName == "DIV") {
 		var current = e.target;
 		/*
 		for(i=0; i<current.parentNode.children.length; i++) {
@@ -72,50 +107,77 @@ function makeContentClick(e) {
 		}
 		current.classList.add("active");
 		*/
-		if(current.name === "#top") {
+		
+		if(current.id === "#top") {
 			 $('.content_text').animate({scrollTop:0}, 'slow');
 		}
 		else {
-			var value = current.name;			
-			var header = document.getElementById(value);			
+			var value = current.id;	
+					
+			var header = document.getElementById(value.substring(1));	
+			
 			$('.content_text').animate({scrollTop:header.offsetTop}, 'slow');
 		}
 	}		
+	
 }
 
 function setMainButtons() {				
-						
-	for(i=0;i<images.length; i++) {
-		
-		if(images[i].classList.contains("active")) {
+	
+	for(i=0;i<buttondivs.length; i++) {
+	
+		if(buttondivs[i].classList.contains("active")) {
 			activebutton = i;
+			
 			break;
 		}
 	}
-	images[activebutton].style.left = "50px";
+	buttondivs[activebutton].style.left = "40px";
 	for(i = activebutton-1; i>= 0; i--) {
-		offset = parseInt(images[i+1].style.top,10) -40;
-		if(images[i+1].classList.contains("active") || parseInt(images[i+1].style.left,10) > 30) {
-			images[i].style.left = "15px";
+		//offset = parseInt(buttondivs[i+1].style.top,10);
+		if(buttondivs[i+1].classList.contains("active") || parseInt(buttondivs[i+1].style.left,10) > 30) {
+			buttondivs[i].style.left = "5px";
 		}
 		else {
-			images[i].style.left = "40px";
+			buttondivs[i].style.left = "40px";
 		}
-		images[i].style.top = offset +"px";
+	//	buttondivs[i].style.top = offset +"px";
 		
 	}
-	for(i = activebutton+1; i<images.length; i++) {
-		offset = parseInt(images[i-1].style.top,10) +40;
-		if(images[i-1].classList.contains("active") || parseInt(images[i-1].style.left,10) > 30) {
-			images[i].style.left = "15px";
+	for(i = activebutton+1; i<buttondivs.length; i++) {
+		offset = parseInt(buttondivs[i-1].style.top,10);
+		if(buttondivs[i-1].classList.contains("active") || parseInt(buttondivs[i-1].style.left,10) > 30) {
+			buttondivs[i].style.left = "5px";
 		}
 		else {
-			images[i].style.left = "40px";
+			buttondivs[i].style.left = "40px";
 		}
-		images[i].style.top = offset +"px";
+		buttondivs[i].style.top = offset-25 +"px";
 		
 	}	
+	
 }
+
+function setTier2Buttons() {				
+	var buttons = document.getElementsByClassName("tier2");
+	buttons[0].style.left = "1px";
+	buttons[0].style.top = "10px";
+	for(i = 1; i< buttons.length; i++) {
+		offset = parseInt(buttons[i-1].style.top,10);
+		
+		if(parseInt(buttons[i-1].style.left,10) > 20) {
+			buttons[i].style.left = "1px";
+		}
+		else {
+			buttons[i].style.left = "25px";
+		}
+		buttons[i].style.top = offset-18 +"px";
+		
+	}
+	
+	
+}
+
 var activebutton = 0;
 
 function checkHeader() {
@@ -130,7 +192,7 @@ function checkHeader() {
 		header.classList.remove("scrolling");
 	}*/
 	
-	if(contentheaders[0].getBoundingClientRect().top-headerHeight > 10) {
+	if(contentheaders[0].getBoundingClientRect().top > 10) {
 		
 		if(!contentbuttons[0].classList.contains("active")) {
 			
@@ -139,14 +201,15 @@ function checkHeader() {
 			}
 			contentbuttons[0].classList.add("active");
 			activebutton = 0;
-			drawScrollbar();		
+			
+		//	drawScrollbar();		
 		}
 	}
 	else {
 		
 		var lowest = 0;
 		for(var i = 0; i<contentheaders.length; i++) {					
-			if(contentheaders[i].getBoundingClientRect().top-headerHeight < 10) {
+			if(contentheaders[i].getBoundingClientRect().top < 10) {
 				lowest = i;								
 			}	
 			else {
@@ -160,10 +223,11 @@ function checkHeader() {
 			
 			contentbuttons[lowest+1].classList.add("active");	
 			activebutton = lowest+1;
+		//	drawScrollbar();
 		}
-		drawScrollbar();	
+			
 	}
-	
+	drawScrollbar();
 }
 function map(value,istart,istop,ostart, ostop) {
     return ostart + (ostop - ostart) * ((value - istart) / (istop - istart));
@@ -172,15 +236,12 @@ function map(value,istart,istop,ostart, ostop) {
 
 function drawScrollbar() {
 	
-	
-
 	ctx.clearRect(0, 0, c.width, c.height);
-	
-	
 	var preypos = 6;
-	console.log(contentheaders.length);
+	var ypos;
+	
 	for(var i=0;i<contentheaders.length;i++) {
-		var ypos = map(contentheaders[i].offsetTop,0,textfield.scrollHeight, 0, c.height);
+		ypos = map(contentheaders[i].offsetTop,0,textfield.scrollHeight, 0, c.height);
 		
 		
 		ctx.beginPath();
@@ -188,11 +249,13 @@ function drawScrollbar() {
 		ctx.lineTo(middle,preypos+20);		
 		ctx.stroke(); 		
 		if(i != activebutton-1) {
+			
 			drawHexagon(ctx,middle,ypos,10,5,basic);	
 		}
 		
 		preypos = ypos;
 	}
+	
 	if(activebutton > 0) {
 		ypos = map(contentheaders[activebutton-1].offsetTop,0,textfield.scrollHeight, 0, c.height);
 		drawHexagon(ctx,middle,ypos,10,5,active);	
@@ -202,7 +265,11 @@ function drawScrollbar() {
 		drawHexagon(ctx, middle, 6, 10, 5, active);	
 		
 	}
-	
+	ctx.fillStyle = basic;	
+	ctx.fillRect(10,map(textfield.scrollTop,0,textfield.scrollHeight, 0, c.height),10,textfield.clientHeight/(textfield.scrollHeight/textfield.clientHeight));
+	ctx.fillStyle = "#FFFFFF";	
+	ctx.fillRect(13,map(textfield.scrollTop,0,textfield.scrollHeight, 0, c.height)+2,4,textfield.clientHeight/(textfield.scrollHeight/textfield.clientHeight)-4);
+
 }
 
 function drawHexagon(context,x,y,r,thickness, color) {	
@@ -219,6 +286,14 @@ function drawHexagon(context,x,y,r,thickness, color) {
 	context.setTransform(1, 0, 0, 1, 0, 0);
 }
 
+function setLabelImages() {
+	
+	var icons = document.getElementsByClassName("icon");
+	/*
+	for() {
+		
+	}*/
+}
 
 function animationTest() {
 		/*var canvas = document.getElementById("draw");

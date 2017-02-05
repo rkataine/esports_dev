@@ -14,68 +14,59 @@
 
 <body class = "body" onload="readFile('database/overview_content.html', document.getElementById('text-file'), document.getElementById('content_buttons'))">
 	
-	<div id="header">
 		
-		<a href="../../index.html"><img src="../../images/hexat_ikonit/espot_ikonit_eSPOT.svg" class="headerlogo" ></a>		
-		<img src="../../images/hexat_ikonit/espot_ikonit_league.svg" class ="gamelogo active"></a>
-		<img src="../../images/hexat_ikonit/espot_ikonit_cs.svg" class ="gamelogo">
-		<img src="../../images/hexat_ikonit/espot_ikonit_dota2.svg" class ="gamelogo">
-		<img src="../../images/hexat_ikonit/espot_ikonit_heartstone.svg" class ="gamelogo">
-		<img src="../../images/hexat_ikonit/espot_ikonit_keilamies.svg" class ="gamelogo">
-		
-	</div>
-	
 	<div class = "container">
 		
 		<div class = "sidebar">				
-			
+			<a href="../../index.html"><img src="../../images/hexat_ikonit/espot_ikonit_eSPOT.svg" class="headerlogo" ></a>	<br>
+			 <div class="separator"><h4>TIER I</h4></div>
+			 
 			 <nav id="mainmenu">	
-				
-				<img name= "overview_content.html" src="../../images/hexat_ikonit/espot_ikonit_empty.png" class="main_button active" />
-				<!-- <img src="images/hexat_ikonit/espot_ikonit_league.svg" class="icon active"/>							 -->
-				<img name="about_content.html" src="../../images/hexat_ikonit/espot_ikonit_empty.png" class="main_button"/> 				
-				<img name="whopick_content.html" src="../../images/hexat_ikonit/espot_ikonit_empty.png" class="main_button"/>
-				<!-- <img name="whopick_content.html" src="images/hexat_ikonit/espot_ikonit_kadet.svg" class="icon"/> -->			
-				<img name="ingamesuccess_content.html" src="../../images/hexat_ikonit/espot_ikonit_empty.png" class="main_button"/>
-                <img name="mobafire_embed.html" src="../../images/hexat_ikonit/espot_ikonit_empty.png" class="main_button"/>
-				
+				<div class="main_button active" id="overview_content.html"><h4>INFO</h4><img src="../../images/hexat_ikonit/espot_ikonit_league.svg"/></div>
+				<div class="main_button" id="tools.html" ><h4>TOOLS</h4><img style="width:73%;padding-left:15%;padding-top:26%;" src="../../images/hexat_ikonit/espot_ikonit_kadet.svg" /></div>
+							
 			</nav> 
-				
-				<script type="text/javascript"> 
-					
-					var header = document.getElementById("header");
-					
-					var mainmenu = document.getElementById("mainmenu");	
-					mainmenu.addEventListener("click", makeMainClick );		
-					var activebutton = 0;
-					var images = mainmenu.getElementsByClassName("main_button");
-					var offset = mainmenu.getBoundingClientRect().top + 20;
-					images[0].style.top = offset +"px";
-					setMainButtons();					
-					
-				</script>
 			
+			<div class="separator"><h4>TIER II</h4></div>
+			
+			<nav id="tier2">
+				<div class="tier2 active" id="overview_content.html"><h4>OVERVIEW</h4></div>
+				<div class="tier2" id="about_content.html"><h4>ABOUT</h4></div>
+				<div class="tier2" id="whopick_content.html"><h4>WHO_TO_PICK?</h4></div>
+				<div class="tier2" id="ingamesuccess_content.html"><h4>SUCCESS!</h4></div>
+				<div class="tier2" id="mobafire_embed.html"><h4>MOBAFIRE</h4></div>			
+			</nav>
+			
+			<div class="separator"><h4>TIER III</h4></div>
+			
+			<nav class="contentmenu" id="content_buttons"></nav>
 		
 		</div>
-		
-		<div class = "content_buttons" >
-		
-				<nav class="contentmenu" id="content_buttons"></nav>
-				
 			
+		<div class = "content_text" id="text-file">
+		
 		</div>
-		
-		<div class = "content_text" id="text-file"></div>
-		
 		<canvas id="content_scrollbar"></canvas>
+		
 		
 		</div>
 	<script type="text/javascript">
-			
+			<!-- var scrollbarpos = document.getElementById("content_scrollbar").getBoundingClientRect().left -30; -->
+			setTier2Buttons();	
+			var header = document.getElementById("header");					
+			var mainmenu = document.getElementById("mainmenu");					
+			mainmenu.addEventListener("click", makeMainClick );		
+			var activebutton = 0;
+			var buttondivs = mainmenu.getElementsByClassName("main_button");
+			var offset = 0; //mainmenu.getBoundingClientRect().top + 20;
+			buttondivs[0].style.top = offset +"px";
+			setMainButtons();					
+			var tier2menu = document.getElementById("tier2");	
+			tier2menu.addEventListener("click", makeTier2Click );	
 			var contentmenu = document.getElementById("content_buttons");	
-			var headerHeight = contentmenu.getBoundingClientRect().top;
+			//var headerHeight = contentmenu.getBoundingClientRect().top;
 			contentmenu.addEventListener("click", makeContentClick );			
-			var images = mainmenu.getElementsByTagName("img");
+			//var images = mainmenu.getElementsByTagName("img");
 			var textfield = document.getElementById("text-file");			
 			textfield.addEventListener("scroll", checkHeader);			
 			var c=document.getElementById("content_scrollbar");
